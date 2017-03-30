@@ -10,8 +10,7 @@ const ContactStatus = ({ contactCount, statusMessage }) => (
 )
 
 ContactStatus.propTypes = {
-    contactCount: PropTypes.number.isRequired,
-    statusMessage: PropTypes.string.isRequired
+
 }
 
 export default ContactStatus

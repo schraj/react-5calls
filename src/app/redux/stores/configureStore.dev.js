@@ -15,10 +15,10 @@ const configureStore = preloadedState => {
       applyMiddleware(thunk, createLogger()),
       DevTools.instrument()
     ),
-    autoRehydrate()
+    //autoRehydrate()
   )
 
-  persistStore(store)
+  //persistStore(store)
 
   // if (module.hot) {
   //   // Enable Webpack hot module replacement for reducers

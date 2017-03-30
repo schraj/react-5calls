@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react'
-import { Button } from 'react-bootstrap'
 import './Contact.css'
 
 const Contact = ({ onEditClick, onDeleteClick, onFindClick, firstName, lastName, location }) => (

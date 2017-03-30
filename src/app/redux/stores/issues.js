@@ -1,5 +1,5 @@
 import { ADD_CONTACT, DELETE_CONTACT, UPDATE_CONTACT}  from '../actions/index'
-import {REHYDRATE} from 'redux-persist/constants'
+//import {REHYDRATE} from 'redux-persist/constants'
 
 const contact = (state, action) => {
   switch (action.type) {

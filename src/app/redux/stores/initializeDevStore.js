@@ -1,4 +1,4 @@
-import { addContact } from '../actions/index' 
+import { setAddress, setGeolocationInfo, setRemoteData } from '../actions/index' 
 import { logger } from "loglevel"
 
 const initializeStore = (store) => {
@@ -73,8 +73,8 @@ store.getAll('org.5calls.userlocale', (userLocale) => {
     logger.debug("user locale get", userLocale[0]);
     cachedUserLocale = userLocale[0];
   } else {
-    const cachedUserLocale = userLocaleDetection(navigator.language || navigator.userLanguage);
-    store.add('org.5calls.userlocale', cachedUserLocale, () => {});
+    // const cachedUserLocale = userLocaleDetection(navigator.language || navigator.userLanguage);
+    // store.add('org.5calls.userlocale', cachedUserLocale, () => {});
   }
 });
 
@@ -132,7 +132,7 @@ let  storedState = {
     debug: debug,
   }
 
-  
+
 
 }
  
