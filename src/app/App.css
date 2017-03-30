@@ -1,0 +1,19 @@
+.main-scene-layout {
+}
+
+.scroll-layout {
+  display:block;
+  width: 268px;
+  float: left;
+}
+
+.map-layout {
+  display:block;
+  width: calc(100% - 268px);;
+  height: 100vh;
+  float:right;
+}
+
+.map-layout>div{
+  z-index: 1;  
+}

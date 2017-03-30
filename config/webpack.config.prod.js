@@ -1,46 +1,47 @@
-'use strict';
-
+var path = require('path');
 var autoprefixer = require('autoprefixer');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+var url = require('url');
 var paths = require('./paths');
 var getClientEnvironment = require('./env');
 
+function ensureSlash(path, needsSlash) {
+  var hasSlash = path.endsWith('/');
+  if (hasSlash && !needsSlash) {
+    return path.substr(path, path.length - 1);
+  } else if (!hasSlash && needsSlash) {
+    return path + '/';
+  } else {
+    return path;
+  }
+}
 
-
+// We use "homepage" field to infer "public path" at which the app is served.
+// Webpack needs to know it to put the right <script> hrefs into HTML even in
+// single-page apps that may serve index.html for nested URLs like /todos/42.
+// We can't use a relative path in HTML because we don't want to load something
+// like /todos/42/static/js/bundle.7289d.js. We have to know the root.
+var homepagePath = require(paths.appPackageJson).homepage;
+var homepagePathname = homepagePath ? url.parse(homepagePath).pathname : '/';
 // Webpack uses `publicPath` to determine where the app is being served from.
 // It requires a trailing slash, or the file assets will get an incorrect path.
-var publicPath = paths.servedPath;
-// Some apps do not use client-side routing with pushState.
-// For these, "homepage" can be set to "." to enable relative asset paths.
-var shouldUseRelativeAssetPaths = publicPath === './';
+var publicPath = ensureSlash(homepagePathname, true);
 // `publicUrl` is just like `publicPath`, but we will provide it to our app
 // as %PUBLIC_URL% in `index.html` and `process.env.PUBLIC_URL` in JavaScript.
-// Omit trailing slash as %PUBLIC_URL%/xyz looks better than %PUBLIC_URL%xyz.
-var publicUrl = publicPath.slice(0, -1);
+// Omit trailing slash as %PUBLIC_PATH%/xyz looks better than %PUBLIC_PATH%xyz.
+var publicUrl = ensureSlash(homepagePathname, false);
 // Get environment variables to inject into our app.
 var env = getClientEnvironment(publicUrl);
 
 // Assert this just to be safe.
 // Development builds of React are slow and not intended for production.
-if (env.stringified['process.env'].NODE_ENV !== '"production"') {
+if (env['process.env'].NODE_ENV !== '"production"') {
   throw new Error('Production builds must have NODE_ENV=production.');
 }
-
-// Note: defined here because it will be used more than once.
-const cssFilename = 'static/css/[name].[contenthash:8].css';
-
-// ExtractTextPlugin expects the build output to be flat.
-// (See https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/27)
-// However, our output is structured with css, js and media folders.
-// To have this structure working with relative paths, we have to use custom options.
-const extractTextPluginOptions = shouldUseRelativeAssetPaths
-  // Making sure that the publicPath goes back to to build folder.
-  ? { publicPath: Array(cssFilename.split('/').length).join('../') }
-  : undefined;
 
 // This is the production configuration.
 // It compiles slowly and is focused on producing a fast and minimal bundle.
@@ -97,34 +98,14 @@ module.exports = {
       }
     ],
     loaders: [
-      // ** ADDING/UPDATING LOADERS **
-      // The "url" loader handles all assets unless explicitly excluded.
-      // The `exclude` list *must* be updated with every change to loader extensions.
-      // When adding a new loader, you must add its `test`
-      // as a new entry in the `exclude` list in the "url" loader.
-
-      // "url" loader embeds assets smaller than specified size as data URLs to avoid requests.
-      // Otherwise, it acts like the "file" loader.
-      {
-        exclude: [
-          /\.html$/,
-          /\.(js|jsx)$/,
-          /\.css$/,
-          /\.json$/,
-          /\.svg$/
-        ],
-        loader: 'url',
-        query: {
-          limit: 10000,
-          name: 'static/media/[name].[hash:8].[ext]'
-        }
-      },
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel',
-        
+        query: {
+          plugins: ['transform-decorators-legacy']
+        }  
       },
       // The notation here is somewhat confusing.
       // "postcss" loader applies autoprefixer to our CSS.
@@ -140,11 +121,15 @@ module.exports = {
       // in the main CSS file.
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract(
-          'style',
-          'css?importLoaders=1!postcss',
-          extractTextPluginOptions
-        )
+        // "?-autoprefixer" disables autoprefixer in css-loader itself:
+        // https://github.com/webpack/css-loader/issues/281
+        // We already have it thanks to postcss. We only pass this flag in
+        // production because "css" loader only enables autoprefixer-powered
+        // removal of unnecessary prefixes when Uglify plugin is enabled.
+        // Webpack 1.x uses Uglify plugin as a signal to minify *all* the assets
+        // including CSS. This is confusing and will be removed in Webpack 2:
+        // https://github.com/webpack/webpack/issues/283
+        loader: ExtractTextPlugin.extract('style', 'css?importLoaders=1&-autoprefixer!postcss')
         // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
       },
       // JSON is not enabled by default in Webpack but both Node and Browserify
@@ -153,16 +138,25 @@ module.exports = {
         test: /\.json$/,
         loader: 'json'
       },
-      // "file" loader for svg
+      // "file" loader makes sure those assets end up in the `build` folder.
+      // When you `import` an asset, you get its filename.
       {
-        test: /\.svg$/,
+        test: /\.(ico|jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2)(\?.*)?$/,
         loader: 'file',
         query: {
           name: 'static/media/[name].[hash:8].[ext]'
         }
+      },
+      // "url" loader works just like "file" loader but it also embeds
+      // assets smaller than specified size as data URLs to avoid requests.
+      {
+        test: /\.(mp4|webm|wav|mp3|m4a|aac|oga)(\?.*)?$/,
+        loader: 'url',
+        query: {
+          limit: 10000,
+          name: 'static/media/[name].[hash:8].[ext]'
+        }
       }
-      // ** STOP ** Are you adding a new loader?
-      // Remember to add the new extension(s) to the "url" loader exclusion list.
     ]
   },
   
@@ -180,12 +174,13 @@ module.exports = {
     ];
   },
   plugins: [
-    // Makes some environment variables available in index.html.
-    // The public URL is available as %PUBLIC_URL% in index.html, e.g.:
+    // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In production, it will be an empty string unless you specify "homepage"
     // in `package.json`, in which case it will be the pathname of that URL.
-    new InterpolateHtmlPlugin(env.raw),
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: publicUrl
+    }),
     // Generates an `index.html` file with the <script> injected.
     new HtmlWebpackPlugin({
       inject: true,
@@ -207,7 +202,7 @@ module.exports = {
     // if (process.env.NODE_ENV === 'production') { ... }. See `./env.js`.
     // It is absolutely essential that NODE_ENV was set to production here.
     // Otherwise React will be compiled in the very slow development mode.
-    new webpack.DefinePlugin(env.stringified),
+    new webpack.DefinePlugin(env),
     // This helps ensure the builds are consistent if source hasn't changed:
     new webpack.optimize.OccurrenceOrderPlugin(),
     // Try to dedupe duplicated modules, if any:
@@ -227,7 +222,7 @@ module.exports = {
       }
     }),
     // Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
-    new ExtractTextPlugin(cssFilename),
+    new ExtractTextPlugin('static/css/[name].[contenthash:8].css'),
     // Generate a manifest file which contains a mapping of all asset filenames
     // to their corresponding output file so that tools can pick it up without
     // having to parse `index.html`.
