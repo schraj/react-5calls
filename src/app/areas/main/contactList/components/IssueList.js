@@ -14,6 +14,9 @@ const getItems = (issues)=> {
 
 const IssueList = ({ issues }) => (
   <div>
+    <ul class="issues-list" role="navigation">
+      ${issues.filter((i) => i.inactive === false).map((i) => Issue(i))}
+    </ul>
   </div>  
 )
 

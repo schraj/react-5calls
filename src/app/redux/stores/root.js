@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import {SET_REMOTE_DATA, SET_ADDRESS, SET_GEOLOCATION_INFO} from '../actions'
+import {SET_REMOTE_DATA, SET_ADDRESS, SET_GEOLOCATION_INFO, SET_UISTATE, SET_USERSTATS} from '../actions'
 
 export const remoteData = (state = {}, action) => {
   switch (action.type) {
@@ -28,8 +28,28 @@ export const address = (state = "", action) => {
   }
 }
 
+export const userStats = (state = {}, action) => {
+  switch (action.type) {
+    case SET_USERSTATS:
+      return action.userStats
+    default:
+      return state
+  }
+}
+
+export const uiState = (state = {}, action) => {
+  switch (action.type) {
+    case SET_UISTATE:
+      return action.uiState
+    default:
+      return state
+  }
+}
+
 export const root = combineReducers({
   remoteData,
   address,
-  geolocation
+  geolocation,
+  userStats,
+  uiState
 })
