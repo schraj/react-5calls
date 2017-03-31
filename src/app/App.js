@@ -1,20 +1,14 @@
 import React from 'react'
-import AddContactContainer from './areas/main/contactList/containers/AddContactContainer'
-import ContactListContainer from './areas/main/contactList/containers/ContactListContainer'
-import ContactStatusContainer from './areas/main/contactStatus/containers/ContactStatusContainer'
+import IssueListContainer from './areas/main/contactList/containers/IssueListContainer'
 
 import './App.css'
 
 const App = () => (
   <div className="main-scene-layout">
+    test
     <div className="scroll-layout">
-      <ContactListContainer />
+      <IssueListContainer />
     </div>
-    <div className="map-layout">
-       <ContactPlacesMapContainer />
-    </div>
-    <ContactStatusContainer />
-    <AddContactContainer />
   </div>
 )
 

@@ -10,7 +10,7 @@ const store = configureStore()
 
 setTimeout(() => {
   var state = store.getState();
-  initializeStore(store)
+  initializeStore(store);
 }, 2000)
 
 render(

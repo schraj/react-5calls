@@ -1,34 +1,17 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import createLogger from 'redux-logger'
-import {persistStore, autoRehydrate} from 'redux-persist'
 
 import DevTools from '../../DevTools'
 
-import {root} from './root';
+import {root} from './root'
 
-const configureStore = preloadedState => {
+const configureStore = () => {
   const store = createStore(
-    root,
-    preloadedState,
-    compose(
-      applyMiddleware(thunk, createLogger()),
-      DevTools.instrument()
-    ),
-    //autoRehydrate()
+    root, 
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
-
-  //persistStore(store)
-
-  // if (module.hot) {
-  //   // Enable Webpack hot module replacement for reducers
-  //   module.hot.accept('../reducers', () => {
-  //     const nextRootReducer = require('../reducers').default
-  //     store.replaceReducer(nextRootReducer)
-  //   })
-  // }
-
-  return store
+  return store;
 }
 
 export default configureStore

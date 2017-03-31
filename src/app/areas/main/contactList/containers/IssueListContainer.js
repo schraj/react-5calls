@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import ContactList from '../components/ContactList'
+import ContactList from '../components/IssueList'
 
 const mapStateToProps = (state) => ({
 })
