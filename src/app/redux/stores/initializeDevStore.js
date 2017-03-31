@@ -93,7 +93,7 @@ const initializeStore = (store) => {
     }
   });
 
-  const issues = getIssues();
+  const issues = getIssues().issues;
   const remoteData = {
     issues: issues,
     activeIssues: issues,

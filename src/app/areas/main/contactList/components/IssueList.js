@@ -1,26 +1,26 @@
 import React, { PropTypes } from 'react'
 import Issue from './Issue'
-import './IssueList.css'
 
 const getItems = (issues)=> {
     return issues.map(issue =>
      <Issue
         key={issue.id}
-        {...issue}
+        issue = {issue}
+        isCompleted = {false}
       />
-    )
-    
+    )    
 } 
 
-const IssueList = ({ issues }) => (
+const IssueList = (issues) => (
   <div>
-    <ul class="issues-list" role="navigation">
-      ${issues.filter((i) => i.inactive === false).map((i) => Issue(i))}
+    <ul className="issues-list" role="navigation">
+      {getItems(issues)}
     </ul>
   </div>  
 )
 
 IssueList.propTypes = {
+  issues: PropTypes.any.isRequired
 }
 
 export default IssueList

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import IssueList from '../components/IssueList'
+import IssuesHeader from '../components/IssuesHeader'
 
 const mapStateToProps = (state) => ({
   issues: state.remoteData.issues
@@ -9,9 +9,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps =  ({
 })
 
-const IssueListContainer = connect(
+const IssuesHeader = connect(
   mapStateToProps,
   mapDispatchToProps
-)(IssueList)
+)(IssuesHeader)
 
-export default IssueListContainer
+export default IssuesHeaderContainer

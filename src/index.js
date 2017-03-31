@@ -8,10 +8,8 @@ import initializeStore from './app/redux/stores/initializeDevStore'
 
 const store = configureStore()
 
-setTimeout(() => {
-  var state = store.getState();
-  initializeStore(store);
-}, 2000)
+var state = store.getState();
+initializeStore(store);
 
 render(
   <Provider store={store}>
