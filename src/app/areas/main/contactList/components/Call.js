@@ -4,6 +4,7 @@ import Script from './Script'
 import Outcomes from './Outcomes'
 import Contact from './Contact'
 import NoContact from './NoContact'
+import Promote from './Promote'
 
 const getContactArea = (issue) => {
   let currentContact = issue.contacts[0];
@@ -27,7 +28,7 @@ const Call = ({ issue, uiState }) => (
 
     {Outcomes(issue.contacts[0], true)}
 
-    {/*${promote(state, prev, send)}*/}
+    <Promote issue = {issue} hasIssue = {true} />
 
   </section>
 )

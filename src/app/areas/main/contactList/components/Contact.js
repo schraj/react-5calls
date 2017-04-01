@@ -7,7 +7,8 @@ const getPhotoURL = (c) => {
 const getRepID = (c) => {
   let repID = ""
   if (c.party != "") {
-    repID = c.party.substring(0, 1) + "-" + c.state;
+    //repID = c.party.substring(0, 1) + "-" + c.state;
+    repID = c.state;
   }
   return repID;
 }
