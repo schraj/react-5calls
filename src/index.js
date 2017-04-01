@@ -1,19 +1,19 @@
-/*eslint no-unused-vars: ["warn", {"vars":"local", "varsIgnorePattern": "[iI]gnored" }]*/
 import React from 'react'
 import { render } from 'react-dom'
-import { Provider } from 'react-redux'
-import AppContainer from './app/AppContainer'
+import { Router, browserHistory } from 'react-router';
 import configureStore from './app/redux/stores/configureStore'
 import initializeStore from './app/redux/stores/initializeDevStore'
+import { Provider } from 'react-redux';
+import Routes from './app/Routes'
 
 const store = configureStore()
-
-var state = store.getState();
 initializeStore(store);
 
 render(
   <Provider store={store}>
-    <AppContainer />
+       <Router routes={Routes} history={browserHistory} />
   </Provider>,
+
+  <Root store={store} />,
   document.getElementById('root')
 )

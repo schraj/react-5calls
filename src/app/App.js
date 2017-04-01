@@ -1,14 +1,19 @@
-import React from 'react'
+import React, {PropTypes} from 'react';
 import SidebarContainer from './areas/main/contactList/containers/SidebarContainer'
-import ContentContainer from './areas/main/contactList/containers/ContentContainer'
 
-import './App.css'
+class App extends React.Component {
+    render() {
+        return (
+          <div className="layout">
+            <SidebarContainer />
+            {this.props.children}
+          </div>
+        );
+    }
+}
 
-const App = () => (
-  <div id="root" className="layout">
-    <SidebarContainer />
-    <ContentContainer />
-  </div>
-)
+App.PropTypes = {
+    children: PropTypes.object.isRequired
+};
 
-export default App
+export default App;
