@@ -3,7 +3,7 @@ import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
 
 const debugText = (debug) => {
-  return debug ? <a href="#" onclick={resetCompletedIssues}>reset</a> : '';
+  return debug ? <a href="#" onClick={resetCompletedIssues}>reset</a> : '';
 }
 
 const resetCompletedIssues = () => {
@@ -20,7 +20,7 @@ const Sidebar = ({issues, uiState}) => (
     <div className="issues">
       {IssuesHeader(issues, uiState)}
       {IssueList(issues)}
-      <a href="/more" className="issues__footer-link" onclick={scrollToTop}>view more issues</a>
+      <a href="/more" className="issues__footer-link" onClick={scrollToTop}>view more issues</a>
       {debugText(uiState.debug)}
     </div>
   </aside>

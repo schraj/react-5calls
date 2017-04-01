@@ -26,7 +26,7 @@ class Issue extends React.Component {
 
     return (
       <li>
-        <a aria-controls="content" className="{classString('')}" href="/issue/{this.props.issue.id}" onclick={() => {}}>
+        <a aria-controls="content" className="{classString('')}" href="/issue/{this.props.issue.id}" onClick={() => {}}>
           <span aria-live="polite" className="{classString('__status')}"><span className="visually-hidden">{statusText}</span></span>
           <span className="{classString('__title')}">{this.props.issue.name}</span>
           <span className="{classString('__summary')}">{this.props.issue.contacts.length} call{this.props.issue.contacts.length > 1 ? "s" : ""} to make</span>
