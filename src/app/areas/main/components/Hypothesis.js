@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import CallCount from './CallCount'
 import Promote from './Promote'
 
-const Hypothesis = (issue, uiState) => (
+const Hypothesis = (totalCalls) => (
     <div class="hypothesis">
       <header class="hypothesis__header">
         <h2 class="hypothesis__title">Make your voice heard</h2>
@@ -32,7 +32,7 @@ const Hypothesis = (issue, uiState) => (
         </ul>
       </div>
 
-      {CallCount()}
+      {CallCount(totalCalls)}
 
     </div>)
 

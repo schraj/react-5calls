@@ -98,7 +98,7 @@ const initializeStore = (store) => {
     issues: issues,
     activeIssues: issues,
     inactiveIssues: issues,
-    totalCalls: 0,
+    totalCalls: 100,
     splitDistrict: false
   }
   store.dispatch(setRemoteData(remoteData));

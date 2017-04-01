@@ -35,7 +35,4 @@ const About = () => (
     </main>
 )
 
-About.propTypes = {
-}
-
 export default About

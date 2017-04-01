@@ -11,9 +11,7 @@ initializeStore(store);
 
 render(
   <Provider store={store}>
-       <Router routes={Routes} history={browserHistory} />
+    <Router routes={Routes} history={browserHistory} />
   </Provider>,
-
-  <Root store={store} />,
   document.getElementById('root')
 )
