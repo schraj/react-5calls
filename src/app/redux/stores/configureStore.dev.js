@@ -1,8 +1,7 @@
-import { createStore, applyMiddleware, compose } from 'redux'
-import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
-
-import DevTools from '../../DevTools'
+import { createStore } from 'redux'
+// import thunk from 'redux-thunk'
+// import createLogger from 'redux-logger'
+// import DevTools from '../../DevTools'
 
 import {root} from './root'
 

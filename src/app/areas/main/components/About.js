@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 
 const About = () => (
     <main id="content" role="main" class="layout__main">

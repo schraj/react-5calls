@@ -5,8 +5,8 @@ const getItems = (issues)=> {
     return issues.map(issue =>
      <Issue
         key={issue.id}
-        issue = {issue}
-        isCompleted = {false}
+        issue={issue}
+        isCompleted={false}
       />
     )    
 } 

@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react'
 import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
 
-const debugText = (debug) => {
-  return debug ? <a href="#" onClick={resetCompletedIssues}>reset</a> : '';
-}
-
 const resetCompletedIssues = () => {
   // send('resetCompletedIssues');
   // send('resetUserStats');
+}
+
+const debugText = (debug) => {
+  return debug ? <a href="#" onClick={resetCompletedIssues}>reset</a> : '';
 }
 
 const scrollToTop = () => {

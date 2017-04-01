@@ -10,7 +10,7 @@ const Hypothesis = (totalCalls) => (
 
         <p><strong>Spend 5 minutes, make 5 calls.</strong></p>
 
-    <Promote issue = {null} hasIssue = {false} />
+        <Promote issue={null} hasIssue={false} />
       </header>
 
       <div class="hypothesis__text">

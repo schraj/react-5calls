@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react'
 
 class Promote extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
 
     // share widgets for both platforms don't play well with dom manipulation so we'll make our own

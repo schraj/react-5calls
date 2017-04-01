@@ -1,9 +1,6 @@
 import React, { PropTypes } from 'react'
 
 class Issue extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     function classString(baseAddition) {
       const BASE_CLASS = 'issues-list__item' + baseAddition;
