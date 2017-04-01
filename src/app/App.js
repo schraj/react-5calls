@@ -1,5 +1,5 @@
 import React, {PropTypes} from 'react';
-import SidebarContainer from './areas/main/contactList/containers/SidebarContainer'
+import SidebarContainer from './areas/main/containers/SidebarContainer'
 
 class App extends React.Component {
     render() {
