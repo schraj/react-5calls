@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import { routerReducer } from 'react-router-redux'
+
 import {SET_REMOTE_DATA, SET_ADDRESS, SET_GEOLOCATION_INFO, SET_UISTATE, SET_USERSTATS} from '../actions'
 
 export const remoteData = (state = {}, action) => {
@@ -51,5 +53,6 @@ export const root = combineReducers({
   address,
   geolocation,
   userStats,
-  uiState
+  uiState,
+  router: routerReducer
 })
