@@ -3,13 +3,13 @@ import { render } from 'react-dom'
 import { Route } from 'react-router';
 import configureStore from './app/redux/stores/configureStore'
 import initializeStore from './app/redux/stores/initializeDevStore'
-import { setRemoteData } from './app/redux/actions/index'
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux'
 import MainPage from './app/pages/MainPage';
 import CallPage from './app/pages/CallPage';
 import DonePage from './app/pages/DonePage';
 import AboutPage from './app/pages/AboutPage';
+import {getData} from './app/services/api'
 
 import createHistory from 'history/createBrowserHistory'
 
@@ -19,20 +19,7 @@ const history = createHistory()
 const store = configureStore(history)
 initializeStore(store);
 
-const issueUrl = 'https://5calls.org/issues/?address=98502'
-const reportUrl = 'https://5calls.org/report'
-
-fetch(issueUrl).then(function (response) {
-  const remoteData = {
-    issues: response.issues,
-    activeIssues: response.issues,
-    inactiveIssues: response.issues,
-    totalCalls: 0,
-    splitDistrict: response.splitDistrict,
-    invalidAddress: response.invalidAddress
-  }
-  store.dispatch(setRemoteData(remoteData));
-});
+getData(store);
 
 render(
   <Provider store={store}>

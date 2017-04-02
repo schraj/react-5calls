@@ -19,7 +19,7 @@ const Sidebar = ({issues, uiState, onSelectIssue}) => (
   <aside id="nav" role="contentinfo" className="layout__side">
     <div className="issues">
       {IssuesHeader(issues, uiState)}
-      {IssueList(issues, onSelectIssue)}
+      {IssueList(issues, uiState, onSelectIssue)}
       <a href="/more" className="issues__footer-link" onClick={scrollToTop}>view more issues</a>
       {debugText(uiState.debug)}
     </div>

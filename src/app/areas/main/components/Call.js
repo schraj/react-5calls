@@ -15,12 +15,52 @@ const getContactArea = (issue) => {
   }
 }
 
-class Call extends React.Component {
+class Call extends React.Component {  
   constructor(props) {
     super(props);
+    this.setIssue(props);
+  }
+
+  setIssue = (props) => {
     const issue = props.issues.find((i) => { return i.id === props.uiState.currentIssueId });
     this.state = {issue: issue};
+
+    console.log("setting issue: %o", issue)
   }
+  componentWillReceiveProps(newProps) {
+    console.log("will receive props")
+    console.log("newProps: %o", newProps)
+
+    this.setIssue(newProps);    
+  }
+
+  shouldComponentUpdate(newProps, newState) {
+    console.log("should update")
+    console.log("newProps: %o", newProps)
+    console.log("newState: %o", newState)
+    return true;
+  }
+
+  componentWillUpdate(newProps, newState) {
+    console.log("will update")
+    console.log("newProps: %o", newProps)
+    console.log("newState: %o", newState)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("did update")
+    console.log("prevProps: %o", prevProps)
+    console.log("prevState: %o", prevState)
+  }
+
+  componentWillMount() {
+    console.log("will mount")
+  }
+
+  componentDidMount() {
+    console.log("did mount")
+  }
+
 
   render() {
    return (
