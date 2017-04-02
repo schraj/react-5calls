@@ -18,12 +18,12 @@ const getContactArea = (issue) => {
 class Call extends React.Component {
   constructor(props) {
     super(props);
-    const issue = props.issues.find((i) => { i.id === props.uiState.currentIssueId });
+    const issue = props.issues.find((i) => { return i.id === props.uiState.currentIssueId });
     this.state = {issue: issue};
   }
 
   render() {
-    (
+   return (
       <section className="call">
         <header className="call__header">
           <h2 className="call__title">{this.state.issue.name}</h2>

@@ -19,7 +19,7 @@ const outcome = (result) => {
 
 const getContactsLeftWidget = (isContactLeft) => {
   if (isContactLeft) {
-    return <h3 aria-live="polite" class="call__contacts__left" >{contactsLeftText}</h3>
+    return <h3 aria-live="polite" className="call__contacts__left" >{contactsLeftText}</h3>
   } else {
     return ''
   }

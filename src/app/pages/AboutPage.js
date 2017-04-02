@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import SidebarContainer from '../areas/main/containers/SidebarContainer'
 import About from '../areas/main/components/About'
 

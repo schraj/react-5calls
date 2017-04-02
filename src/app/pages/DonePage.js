@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import SidebarContainer from '../areas/main/containers/SidebarContainer'
 
 class DonePage extends React.Component {

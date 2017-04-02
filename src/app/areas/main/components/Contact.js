@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react'
 
 const getPhotoURL = (c) => {
-  return c.photoURL == "" ? "/img/5calls-icon-office.png" : c.photoURL
+  return c.photoURL === "" ? "/img/5calls-icon-office.png" : c.photoURL
 }
 
 const getRepID = (c) => {
   let repID = ""
-  if (c.party != "") {
+  if (c.party !== "") {
     //repID = c.party.substring(0, 1) + "-" + c.state;
     repID = c.state;
   }
@@ -24,14 +24,14 @@ const cityFormat = (office, c) => {
 const getFieldOfficesWidget = (showFieldOfficeNumbers, c) => {
   if (c.field_offices) {
     if (!showFieldOfficeNumbers) {
-      return <p class="call__contact__show-field-offices">Busy line? <a onClick={() => { }}>Click here to see local office numbers</a></p>
+      return <p className="call__contact__show-field-offices">Busy line? <a onClick={() => { }}>Click here to see local office numbers</a></p>
     }
     else {
       if (showFieldOfficeNumbers) {
         return (
           <div>
-            <h3 class="call__contact__field-offices__header">Local office numbers:</h3>
-            <ul class="call__contact__field-office-list">
+            <h3 className="call__contact__field-offices__header">Local office numbers:</h3>
+            <ul className="call__contact__field-office-list">
               {c.field_offices.map(office =>
                 <li><a href="tel:+1{office.phone.replace(/-/g, '')}">{office.phone}</a> {cityFormat(office, c)}</li>
               )}

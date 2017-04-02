@@ -25,7 +25,7 @@ render(
       <div>
         <Route exact path="/" component={MainPage} />
         <Route path="/about" component={AboutPage}/>
-        <Route path="/issue/:id" component={CallPage}/>
+        <Route path="/issue" component={CallPage}/>
         <Route path="/done" component={DonePage}/>
       </div>
     </ConnectedRouter>

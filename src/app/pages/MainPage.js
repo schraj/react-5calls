@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import SidebarContainer from '../areas/main/containers/SidebarContainer'
 import HypothesisContainer from '../areas/main/containers/HypothesisContainer'
 //import Hypothesis from '../areas/main/components/Hypothesis'

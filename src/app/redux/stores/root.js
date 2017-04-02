@@ -44,8 +44,7 @@ export const uiState = (state = {}, action) => {
     case SET_UISTATE:
       return action.uiState
     case SELECT_ISSUE:
-      state.uiState.currentIssueId = action.id;
-      return action.uiState
+      return {...state, currentIssueId: action.id}
     default:
       return state
   }

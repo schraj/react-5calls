@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+//import IssueLink from './IssueLink'
+import { Link } from 'react-router-dom';
 
 class Issue extends React.Component {
   render() {
@@ -23,12 +25,12 @@ class Issue extends React.Component {
 
     return (
       <li>
-        <a aria-controls="content" className="{classString('')}" href="/issue/{this.props.issue.id}" onClick={() => {this.props.onSelectIssue()}}>
+        <Link aria-controls="content" className="{classString('')}" to="/issue" onClick={() => {this.props.onSelectIssue(this.props.issue.id)}}>
           <span aria-live="polite" className="{classString('__status')}"><span className="visually-hidden">{statusText}</span></span>
           <span className="{classString('__title')}">{this.props.issue.name}</span>
           <span className="{classString('__summary')}">{this.props.issue.contacts.length} call{this.props.issue.contacts.length > 1 ? "s" : ""} to make</span>
-        </a>
-      </li>
+        </Link>
+    </li>
     )
   }
 }
