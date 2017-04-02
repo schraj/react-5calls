@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
-import { scrollIntoView } from '../../../services/scrollintoview'
 
 const resetCompletedIssues = () => {
   // send('resetCompletedIssues');
@@ -15,7 +14,7 @@ const debugText = (debug) => {
 }
 
 const scrollToTop = () => {
-  window.scrollIntoView(document.querySelector('.issues__title'))
+  window.scroll(0,0);
 }
 
 const Sidebar = ({issues, uiState, onSelectIssue}) => (

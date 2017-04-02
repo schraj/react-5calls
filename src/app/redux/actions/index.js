@@ -1,5 +1,7 @@
 import { push } from 'react-router-redux'
 
+import localStorage from '../../services/localstorage'
+
 export const SET_REMOTE_DATA = 'SET_REMOTEDATA'
 export const SET_REPORT_DATA = 'SET_REPORTDATA'
 export const SET_ADDRESS = 'SET_ADDRESS'
@@ -69,7 +71,14 @@ export const submitOutcome = (outcomeType, paramsObject) => {
 
       if ((currentIssue.contacts.length -1) === contactIndex){
         // they've just finished their last contactIndex
+        
+        // persist to local storage the completed issue
+        localStorage.add('org.5calls.completed', currentIssue.id, () =>{})
+
+        // update the store
         dispatch(completeIssue(currentIssue.id));
+
+        // navigate
         return dispatch(push('/done'));  
       } else {
         return dispatch(moveToNextContact());  

@@ -4,7 +4,8 @@ import Done from '../components/Done'
 
 const mapStateToProps = (state) => ({
   issues: state.remoteData.issues,
-  uiState: state.uiState
+  uiState: state.uiState,
+  totalCalls: state.reportData.totalCalls  
 })
 
 const mapDispatchToProps =  ({
