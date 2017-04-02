@@ -1,14 +1,21 @@
 export const SET_REMOTE_DATA = 'SET_REMOTEDATA'
+export const SET_REPORT_DATA = 'SET_REPORTDATA'
 export const SET_ADDRESS = 'SET_ADDRESS'
 export const SET_GEOLOCATION_INFO = 'SET_GEOLOCATION_INFO'
 export const SET_USERSTATS = 'SET_USERSTATS'
 export const SET_UISTATE = 'SET_UISTATE'
 
 export const SELECT_ISSUE = 'SELECT_ISSUE'
+export const SUBMIT_OUTCOME = 'SUBMIT_OUTCOME'
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
   remoteData: remoteData
+})
+
+export const setReportData = (reportData) => ({
+  type: SET_REPORT_DATA,
+  reportData: reportData
 })
 
 export const setGeolocationInfo = (info) => ({
@@ -34,4 +41,10 @@ export const setUiState = (uiState) => ({
 export const selectIssue = (id) => ({
   type: SELECT_ISSUE,
   id: id
+})
+
+export const submitOutcome = (outcomeType, paramsObject) => ({
+  type: SUBMIT_OUTCOME,
+  outcomeType: outcomeType,
+  paramsObject: paramsObject
 })

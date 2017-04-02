@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Hypothesis from '../components/Hypothesis'
 
 const mapStateToProps = (state) => ({
-  totalCalls: state.remoteData.totalCalls,
+  totalCalls: state.reportData.totalCalls,
 })
 
 const mapDispatchToProps =  ({

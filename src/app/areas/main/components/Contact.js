@@ -7,8 +7,7 @@ const getPhotoURL = (c) => {
 const getRepID = (c) => {
   let repID = ""
   if (c.party !== "") {
-    //repID = c.party.substring(0, 1) + "-" + c.state;
-    repID = c.state;
+    repID = c.party.substring(0, 1) + "-" + c.state;
   }
   return repID;
 }
@@ -45,7 +44,7 @@ const getFieldOfficesWidget = (showFieldOfficeNumbers, c) => {
 
 const Contact = (c) => (
   <div className="call__contact" id="contact">
-    <div className="call__contact__image"><img alt="" src="{getPhotoURL(c)}" /></div>
+    <div className="call__contact__image"><img alt="" src={getPhotoURL(c)} /></div>
     <h3 className="call__contact__type">Call this office:</h3>
     <p className="call__contact__name">{c.name} {getRepID(c)}</p>
     <p className="call__contact__phone">

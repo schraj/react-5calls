@@ -1,28 +1,28 @@
 import axios from 'axios'
-import { setRemoteData } from '../redux/actions/index'
+import { setRemoteData, setReportData } from '../redux/actions/index'
 
 const issueUrl = 'https://5calls.org/issues/?address=98502'
 const reportUrl = 'https://5calls.org/report'
 
 export const getData = (store) => {
-    // var request = new Request(issueUrl, {
-    //     method: 'GET',
-    //     headers: new Headers({
-    //         'Content-Type': 'application/json',
-    //     }),
-    //     mode: 'cors'
-    // });
-
     axios.get(issueUrl).then((response) => {
-            const remoteData = {
+        const remoteData = {
             issues: response.data.issues,
             activeIssues: response.data.issues,
             inactiveIssues: response.data.issues,
             totalCalls: 0,
-            splitDistrict: response.splitDistrict,
-            invalidAddress: response.invalidAddress
+            splitDistrict: response.data.splitDistrict,
+            invalidAddress: response.data.invalidAddress
         }
         store.dispatch(setRemoteData(remoteData));
     });
 }
 
+export const getReportData = (store) => {
+    axios.get(reportUrl).then((response) => {
+        const reportData = {
+            totalCalls: response.data.count
+        }
+        store.dispatch(setReportData(reportData));
+    });
+}

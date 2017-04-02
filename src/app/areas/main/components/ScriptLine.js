@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-const getKey = (line) => {
-  return line.replace(/\s/g,'');
-}
+// const getKey = (line) => {
+//   return line.replace(/\s/g,'');
+// }
 
 const ScriptLine = (line) => (
   	<p>{line}</p>
