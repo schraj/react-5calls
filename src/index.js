@@ -1,10 +1,10 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Router, Route, browserHistory } from 'react-router';
+import { Route } from 'react-router';
 import configureStore from './app/redux/stores/configureStore'
 import initializeStore from './app/redux/stores/initializeDevStore'
 import { Provider } from 'react-redux';
-import { ConnectedRouter, routerReducer, routerMiddleware, push } from 'react-router-redux'
+import { ConnectedRouter } from 'react-router-redux'
 import MainPage from './app/pages/MainPage';
 import CallPage from './app/pages/CallPage';
 import DonePage from './app/pages/DonePage';
@@ -25,7 +25,7 @@ render(
       <div>
         <Route exact path="/" component={MainPage} />
         <Route path="/about" component={AboutPage}/>
-        <Route path="/call" component={CallPage}/>
+        <Route path="/issue/:id" component={CallPage}/>
         <Route path="/done" component={DonePage}/>
       </div>
     </ConnectedRouter>

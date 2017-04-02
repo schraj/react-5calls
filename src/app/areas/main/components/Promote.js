@@ -35,7 +35,7 @@ class Promote extends React.Component {
     }
 
     return (
-      <div class="promote">
+      <div className="promote">
         <p>
           <a target="_blank" onClick={(e) => tweetShare(e)}><i className="fa fa-twitter" aria-hidden="true"></i> {twitterTitle}</a>
           <a target="_blank" onClick={(e) => fbShare(e)}><i className="fa fa-facebook" aria-hidden="true"></i> {facebookTitle}</a>

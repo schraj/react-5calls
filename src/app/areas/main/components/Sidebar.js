@@ -15,7 +15,7 @@ const scrollToTop = () => {
   //scrollIntoView(document.querySelector('#content'))
 }
 
-const Sidebar = ({issues, uiState}) => (
+const Sidebar = ({issues, uiState, onSelectIssue}) => (
   <aside id="nav" role="contentinfo" className="layout__side">
     <div className="issues">
       {IssuesHeader(issues, uiState)}
@@ -28,7 +28,8 @@ const Sidebar = ({issues, uiState}) => (
 
 Sidebar.propTypes = {
   issues: PropTypes.any.isRequired,
-  uiState: PropTypes.any.isRequired
+  uiState: PropTypes.any.isRequired,
+  onSelectIssue: PropTypes.func.isRequired
 }
 
 export default Sidebar

@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import {SET_REMOTE_DATA, SET_ADDRESS, SET_GEOLOCATION_INFO, SET_UISTATE, SET_USERSTATS} from '../actions'
+import {SET_REMOTE_DATA, SET_ADDRESS, SET_GEOLOCATION_INFO, SET_UISTATE, SET_USERSTATS, SELECT_ISSUE} from '../actions'
 
 export const remoteData = (state = {}, action) => {
   switch (action.type) {
@@ -42,6 +42,9 @@ export const userStats = (state = {}, action) => {
 export const uiState = (state = {}, action) => {
   switch (action.type) {
     case SET_UISTATE:
+      return action.uiState
+    case SELECT_ISSUE:
+      state.uiState.currentIssueId = action.id;
       return action.uiState
     default:
       return state

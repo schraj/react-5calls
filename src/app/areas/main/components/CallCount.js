@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const CallCount = (totalCalls) => (
-  <h2 class="callcount">
+  <h2 className="callcount">
     Together we’ve made {totalCalls} calls
   </h2>
 )

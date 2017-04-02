@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import CallCount from './CallCount'
 import Promote from './Promote'
 
-const Hypothesis = (totalCalls) => (
+const Hypothesis = ({totalCalls}) => (
     <div className="hypothesis">
       <header className="hypothesis__header">
         <h2 className="hypothesis__title">Make your voice heard</h2>

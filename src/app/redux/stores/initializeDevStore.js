@@ -120,6 +120,7 @@ const initializeStore = (store) => {
     askingLocation: false,
     fetchingLocation: cachedFetchingLocation,
     locationFetchType: cachedLocationFetchType,
+    currentIssueId: null,
     contactIndices: {},
     completedIssues: completedIssues,
     showFieldOfficeNumbers: false,

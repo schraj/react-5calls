@@ -15,26 +15,36 @@ const getContactArea = (issue) => {
   }
 }
 
-const Call = ({ issue, uiState }) => (
-  <section className="call">
-    <header className="call__header">
-      <h2 className="call__title">{issue.name}</h2>
-      <div className="call__reason">{issue.reason.split('\n').map((line) => ScriptLine(line))}</div>
-    </header>
+class Call extends React.Component {
+  constructor(props) {
+    super(props);
+    const issue = props.issues.find((i) => { i.id === props.uiState.currentIssueId });
+    this.state = {issue: issue};
+  }
 
-    {getContactArea(issue)}
+  render() {
+    (
+      <section className="call">
+        <header className="call__header">
+          <h2 className="call__title">{this.state.issue.name}</h2>
+          <div className="call__reason">{this.state.issue.reason.split('\n').map((line) => ScriptLine(line))}</div>
+        </header>
 
-    {Script(issue)}
+        {getContactArea(this.state.issue)}
 
-    {Outcomes(issue.contacts[0], true)}
+        {Script(this.state.issue)}
 
-    <Promote issue = {issue} hasIssue = {true} />
+        {Outcomes(this.state.issue.contacts[0], true)}
 
-  </section>
-)
+        <Promote issue={this.state.issue} hasIssue={true} />
+
+      </section>
+    )
+  }
+}
 
 Call.propTypes = {
-  issue: PropTypes.any.isRequired,
+  issues: PropTypes.any.isRequired,
   uiState: PropTypes.any.isRequired
 }
 

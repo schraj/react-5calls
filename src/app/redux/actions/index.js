@@ -4,6 +4,8 @@ export const SET_GEOLOCATION_INFO = 'SET_GEOLOCATION_INFO'
 export const SET_USERSTATS = 'SET_USERSTATS'
 export const SET_UISTATE = 'SET_UISTATE'
 
+export const SELECT_ISSUE = 'SELECT_ISSUE'
+
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
   remoteData: remoteData
@@ -27,4 +29,9 @@ export const setUserStats = (userStats) => ({
 export const setUiState = (uiState) => ({
   type: SET_UISTATE,
   uiState: uiState
+})
+
+export const selectIssue = (id) => ({
+  type: SELECT_ISSUE,
+  id: id
 })

@@ -23,7 +23,7 @@ class Issue extends React.Component {
 
     return (
       <li>
-        <a aria-controls="content" className="{classString('')}" href="/issue/{this.props.issue.id}" onClick={() => {}}>
+        <a aria-controls="content" className="{classString('')}" href="/issue/{this.props.issue.id}" onClick={() => {this.props.onSelectIssue()}}>
           <span aria-live="polite" className="{classString('__status')}"><span className="visually-hidden">{statusText}</span></span>
           <span className="{classString('__title')}">{this.props.issue.name}</span>
           <span className="{classString('__summary')}">{this.props.issue.contacts.length} call{this.props.issue.contacts.length > 1 ? "s" : ""} to make</span>
@@ -35,7 +35,8 @@ class Issue extends React.Component {
 
 Issue.propTypes = {
   issue: PropTypes.any.isRequired,
-  isCompleted: PropTypes.bool.isRequired
+  isCompleted: PropTypes.bool.isRequired,
+  onSelectIssue: PropTypes.func.isRequired
 }
 
 export default Issue;
