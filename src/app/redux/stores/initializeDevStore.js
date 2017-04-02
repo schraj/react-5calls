@@ -1,7 +1,6 @@
 import { setAddress, setGeolocationInfo, setRemoteData, setUserStats, setUiState } from '../actions/index'
 import { logger } from 'loglevel'
 import localStore from '../../services/localstorage'
-import { getIssues } from './data'
 
 const initializeStore = (store) => {
 
@@ -93,13 +92,13 @@ const initializeStore = (store) => {
     }
   });
 
-  const issues = getIssues().issues;
   const remoteData = {
-    issues: issues,
-    activeIssues: issues,
-    inactiveIssues: issues,
-    totalCalls: 100,
-    splitDistrict: false
+    issues: [],
+    activeIssues: [],
+    inactiveIssues: [],
+    totalCalls: 0,
+    splitDistrict: false,
+    invalidAddress: false
   }
   store.dispatch(setRemoteData(remoteData));
 
