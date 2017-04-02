@@ -1,8 +1,7 @@
 import { createStore, applyMiddleware } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import {root} from './root'
-
-// import thunk from 'redux-thunk'
+import thunk from 'redux-thunk'
 // import createLogger from 'redux-logger'
 // import DevTools from '../../DevTools'
 

@@ -9,7 +9,7 @@ import MainPage from './app/pages/MainPage';
 import CallPage from './app/pages/CallPage';
 import DonePage from './app/pages/DonePage';
 import AboutPage from './app/pages/AboutPage';
-import {getData} from './app/services/api'
+import {getIssueData, getReportData} from './app/services/api'
 
 import createHistory from 'history/createBrowserHistory'
 
@@ -19,7 +19,8 @@ const history = createHistory()
 const store = configureStore(history)
 initializeStore(store);
 
-getData(store);
+getIssueData(store);
+getReportData(store);
 
 render(
   <Provider store={store}>

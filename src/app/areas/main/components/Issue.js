@@ -1,14 +1,20 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router-dom';
+//import { scrollIntoView } from '../../../services/scrollintoview'
 
-class Issue extends React.Component {  
+class Issue extends React.Component {
+  scrollToTop = () => {
+    //scrollIntoView(document.querySelector('.issues__title'))
+    window.scroll(0,0)
+  }
+  
   render() {  
     let ACTIVE_CLASS = 'is-active';
     let COMPLETE_CLASS = 'is-complete';
 
     return (
       <li>
-        <Link aria-controls="content" className={`issues-list__item ${this.props.isCompleted ? COMPLETE_CLASS : ''} ${this.props.isActive ? ACTIVE_CLASS : ''}`} to="/issue" onClick={() => { this.props.onSelectIssue(this.props.issue.id) }}>
+        <Link aria-controls="content" className={`issues-list__item ${this.props.isCompleted ? COMPLETE_CLASS : ''} ${this.props.isActive ? ACTIVE_CLASS : ''}`} to="/issue" onClick={() => { this.props.onSelectIssue(this.props.issue.id); this.scrollToTop(); }}>
           <span aria-live="polite" className={`issues-list__item__status ${this.props.isCompleted ? COMPLETE_CLASS : ''} ${this.props.isActive ? ACTIVE_CLASS : ''}`}><span className="visually-hidden">{this.props.isCompleted ? 'Done' : ''}}</span></span>
           <span className={`issues-list__item__title ${this.props.isCompleted ? COMPLETE_CLASS : ''} ${this.props.isActive ? ACTIVE_CLASS : ''}`}>{this.props.issue.name}</span>
           <span className={`issues-list__item__summary ${this.props.isCompleted ? COMPLETE_CLASS : ''} ${this.props.isActive ? ACTIVE_CLASS : ''}`}>{this.props.issue.contacts.length} call{this.props.issue.contacts.length > 1 ? "s" : ""} to make</span>

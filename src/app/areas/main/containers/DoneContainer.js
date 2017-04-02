@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import Sidebar from '../components/Sidebar'
+import Done from '../components/Done'
 
 const mapStateToProps = (state) => ({
   issues: state.remoteData.issues,
@@ -13,6 +13,6 @@ const mapDispatchToProps =  ({
 const DoneContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(Sidebar)
+)(Done)
 
 export default DoneContainer

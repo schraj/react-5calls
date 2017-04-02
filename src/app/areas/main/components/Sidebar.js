@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router-dom';
+
 import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
+import { scrollIntoView } from '../../../services/scrollintoview'
 
 const resetCompletedIssues = () => {
   // send('resetCompletedIssues');
@@ -12,7 +15,7 @@ const debugText = (debug) => {
 }
 
 const scrollToTop = () => {
-  //scrollIntoView(document.querySelector('#content'))
+  window.scrollIntoView(document.querySelector('.issues__title'))
 }
 
 const Sidebar = ({issues, uiState, onSelectIssue}) => (
@@ -20,7 +23,7 @@ const Sidebar = ({issues, uiState, onSelectIssue}) => (
     <div className="issues">
       {IssuesHeader(issues, uiState)}
       {IssueList(issues, uiState, onSelectIssue)}
-      <a href="/more" className="issues__footer-link" onClick={scrollToTop}>view more issues</a>
+      <Link to="/more" className="issues__footer-link" onClick={scrollToTop}>view more issues</Link>
       {debugText(uiState.debug)}
     </div>
   </aside>

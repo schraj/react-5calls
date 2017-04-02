@@ -1,7 +1,15 @@
 import React, { PropTypes } from 'react'
 
 class Outcomes extends React.Component {
-  outcomeClick = (result) => {
+  scrollToTop = () => {
+    //scrollIntoView(document.querySelector('.issues__title'))
+    window.scroll(0,0)
+  }
+
+  outcomeClick = (e,result) => {
+    e.target.blur();
+    this.scrollToTop();
+
     if (!result) {
       this.props.onSubmitOutcome('skipCall', { issueid: this.props.issue.id });
     } else {
@@ -16,10 +24,10 @@ class Outcomes extends React.Component {
             <div className="call__outcomes">
               <h3 className="call__outcomes__header">Enter your call result to get the next call:</h3>
               <div className="call__outcomes__items">
-                <button onClick={() => this.outcomeClick('unavailable')}>Unavailable</button>
-                <button onClick={() => this.outcomeClick('vm')}>Left Voicemail</button>
-                <button onClick={() => this.outcomeClick('contacted')}>Made Contact</button>
-                <button onClick={() => this.outcomeClick()}>Skip</button>
+                <button onClick={(e) => this.outcomeClick(e,'unavailable')}>Unavailable</button>
+                <button onClick={(e) => this.outcomeClick(e,'vm')}>Left Voicemail</button>
+                <button onClick={(e) => this.outcomeClick(e,'contacted')}>Made Contact</button>
+                <button onClick={(e) => this.outcomeClick(e)}>Skip</button>
               </div>
               {this.props.numContactsLeft > 0 &&
                 <h3 aria-live="polite" className="call__contacts__left" >There are {this.props.numContactsLeft} call left to make.</h3>
