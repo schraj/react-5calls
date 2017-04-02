@@ -27,8 +27,8 @@ const Hypothesis = ({totalCalls}) => (
         <h3 className="hypothesis__subtitle">Get the 5 Calls app:</h3>
 
         <ul className="hypothesis__apps">
-        <li><a href="https://itunes.apple.com/us/app/5-calls/id1202558609?mt=8"><img className="ios" src="/img/app-store.svg" alt="5 Calls on the App Store" /></a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=org.a5calls.android.a5calls&hl=en"><img className="play" src="/img/google-play-badge.png" alt="5 Calls on Google Play" /></a></li>
+        <li><a href="https://itunes.apple.com/us/app/5-calls/id1202558609?mt=8"><img className="ios" src="/assets/images/app-store.svg" alt="5 Calls on the App Store" /></a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=org.a5calls.android.a5calls&hl=en"><img className="play" src="/assets/images/google-play-badge.png" alt="5 Calls on Google Play" /></a></li>
         </ul>
       </div>
 
@@ -37,7 +37,7 @@ const Hypothesis = ({totalCalls}) => (
     </div>)
 
 Hypothesis.propTypes = {
-  totalCalls: PropTypes.number.isRequired,
+  totalCalls: PropTypes.string,
 } 
 
 export default Hypothesis

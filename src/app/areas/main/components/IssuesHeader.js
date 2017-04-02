@@ -1,4 +1,6 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router-dom';
+
 import IssuesLocation from './IssuesLocation'
 
 const issueExplain = (issues) => {
@@ -23,9 +25,9 @@ const classString = () => {
 const IssuesHeader = (issues, uiState) => (
   <header className={classString()} role="banner">
     <h1 className="issues__title">
-      <a href="/" onClick={() => { }}>
+      <Link to="/">
         <img className="issues__logo" src="/assets/images/5calls-logotype.png" alt="5 Calls" />5 Calls
-      </a>
+      </Link>
     </h1>
     {IssuesLocation(uiState)}
     {issueExplain(issues)}

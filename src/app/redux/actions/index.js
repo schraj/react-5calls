@@ -1,3 +1,5 @@
+import { push } from 'react-router-redux'
+
 export const SET_REMOTE_DATA = 'SET_REMOTEDATA'
 export const SET_REPORT_DATA = 'SET_REPORTDATA'
 export const SET_ADDRESS = 'SET_ADDRESS'
@@ -6,7 +8,8 @@ export const SET_USERSTATS = 'SET_USERSTATS'
 export const SET_UISTATE = 'SET_UISTATE'
 
 export const SELECT_ISSUE = 'SELECT_ISSUE'
-export const SUBMIT_OUTCOME = 'SUBMIT_OUTCOME'
+export const COMPLETE_ISSUE = 'COMPLETE_ISSUE'
+export const MOVE_TO_NEXT_CONTACT = 'MOVE_TO_NEXT_CONTACT'
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
@@ -43,8 +46,33 @@ export const selectIssue = (id) => ({
   id: id
 })
 
-export const submitOutcome = (outcomeType, paramsObject) => ({
-  type: SUBMIT_OUTCOME,
-  outcomeType: outcomeType,
-  paramsObject: paramsObject
+export const completeIssue = (id) => ({
+  type: COMPLETE_ISSUE,
+  id: id
 })
+
+export const moveToNextContact = () => ({
+  type: MOVE_TO_NEXT_CONTACT,
+})
+
+// thunk action creator
+export const submitOutcome = (outcomeType, paramsObject) => {
+    return (dispatch, getState) => {
+      // TODO: here we would post to the report api
+
+      let state = getState();
+      let currentIssue = state.remoteData.issues.find((i) => { return i.id === state.uiState.currentIssueId });
+      let contactIndex = 0;
+      if (state.uiState.contactIndices[currentIssue.id]){
+        contactIndex = state.uiState.contactIndices[currentIssue.id];    
+      }
+
+      if ((currentIssue.contacts.length -1) === contactIndex){
+        // they've just finished their last contactIndex
+        dispatch(completeIssue(currentIssue.id));
+        return dispatch(push('/done'));  
+      } else {
+        return dispatch(moveToNextContact());  
+      }
+    };
+}

@@ -8,7 +8,8 @@ import {SET_REMOTE_DATA,
         SET_UISTATE, 
         SET_USERSTATS, 
         SELECT_ISSUE,
-        SUBMIT_OUTCOME
+        MOVE_TO_NEXT_CONTACT,
+        COMPLETE_ISSUE
       } from '../actions'
 
 export const remoteData = (state = {}, action) => {
@@ -62,7 +63,7 @@ export const uiState = (state = {}, action) => {
       return action.uiState
     case SELECT_ISSUE:
       return {...state, currentIssueId: action.id}
-    case SUBMIT_OUTCOME:
+    case MOVE_TO_NEXT_CONTACT:
       let newIndices = {...state.contactIndices};
       if (!newIndices[state.currentIssueId]){
         newIndices[state.currentIssueId] = 1;
@@ -70,6 +71,12 @@ export const uiState = (state = {}, action) => {
         newIndices[state.currentIssueId]++;
       }
       return {...state, contactIndices: newIndices}
+    case COMPLETE_ISSUE:
+      let newCompletedIssues = [...state.completedIssues];
+      newCompletedIssues.push(action.id);
+      let newState = {...state };
+      newState.completedIssues = newCompletedIssues;
+      return newState;
     default:
       return state
   }

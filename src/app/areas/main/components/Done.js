@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import { Link } from 'react-router-dom';
 import CallCount from './CallCount'
 import Promote from './Promote'
 
@@ -60,16 +61,16 @@ class Done extends React.Component {
 
   render() {
    return (
-        <main id="content" role="main" class="layout__main">
-        <section class="call">
-          <div class="call_complete">
-            <h2 class="call__title">Great work!</h2>
-            <p class="call__text">
+        <main id="content" role="main" className="layout__main">
+        <section className="call">
+          <div className="call_complete">
+            <h2 className="call__title">Great work!</h2>
+            <p className="call__text">
               Pick another issue to keep calling, or spread the word by sharing your work with friends:
             </p>
             <Promote issue={this.state.issue} hasIssue={true} />
     
-            <p class="call__text"> <a href="/about">Learn why calling</a> representatives is the most effective way of making your voice heard.</p>
+            <p className="call__text"> <Link to="/about">Learn why calling</Link> representatives is the most effective way of making your voice heard.</p>
     
            {CallCount(this.props.totalCalls)}
           </div>
@@ -82,7 +83,7 @@ class Done extends React.Component {
 Done.propTypes = {
   issues: PropTypes.any.isRequired,
   uiState: PropTypes.any.isRequired,
-  totalCalls: PropTypes.number.isRequired
+  totalCalls: PropTypes.string.isRequired
 }
 
 export default Done

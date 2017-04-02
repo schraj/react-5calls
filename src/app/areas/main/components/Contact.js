@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 
 const getPhotoURL = (c) => {
-  return c.photoURL === "" ? "/img/5calls-icon-office.png" : c.photoURL
+  return c.photoURL === "" ? "/assets/images/5calls-icon-office.png" : c.photoURL
 }
 
 const getRepID = (c) => {
