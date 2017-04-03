@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react'
 import { Link } from 'react-router-dom';
-//import { scrollIntoView } from '../../../services/scrollintoview'
 
 class Issue extends React.Component {
   scrollToTop = () => {
-    //scrollIntoView(document.querySelector('.issues__title'))
     window.scroll(0,0)
   }
   

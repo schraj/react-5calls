@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import Call from '../components/Call'
-import { submitOutcome } from '../../../redux/actions/index'
+import { submitOutcome } from '../redux/actions/index'
 
 const mapStateToProps = (state) => ({
   issues: state.remoteData.issues,

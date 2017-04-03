@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 
 import Sidebar from '../components/Sidebar'
-import { selectIssue, resetIssues, resetLocation, setLocation } from '../../../redux/actions/index'
+import { selectIssue, resetIssues, resetLocation, setLocation } from '../redux/actions/index'
 
 const mapStateToProps = (state) => ({
   issues: state.remoteData.issues,

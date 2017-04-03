@@ -2,7 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
 import {root} from './root'
 import thunk from 'redux-thunk'
-import createLogger from 'redux-logger'
+//import createLogger from 'redux-logger'
 
 const configureStore = (history) => {
 
@@ -12,9 +12,9 @@ const configureStore = (history) => {
   // Build the middleware for intercepting and dispatching navigation actions
   const middlewareForRouter = routerMiddleware(history)
 
-  const logger = createLogger();
+  //const logger = createLogger();
 
-  const middleware = [thunk, middlewareForRouter, logger];
+  const middleware = [thunk, middlewareForRouter];
 
   // ======================================================
   // Store Enhancers

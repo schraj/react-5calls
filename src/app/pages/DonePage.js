@@ -1,7 +1,7 @@
 import React from 'react';
-import SidebarContainer from '../areas/main/containers/SidebarContainer'
-import DoneContainer from '../areas/main/containers/DoneContainer'
-import Footer from '../areas/main/components/Footer'
+import SidebarContainer from '../containers/SidebarContainer'
+import DoneContainer from '../containers/DoneContainer'
+import Footer from '../components/Footer'
 
 class DonePage extends React.Component {
   render() {
