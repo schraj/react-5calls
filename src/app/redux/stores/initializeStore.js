@@ -1,8 +1,8 @@
 import { setLocationInfo, 
          setRemoteData, 
          setUserStats, 
-         setCallState,
-         setIsDebug } from '../actions/index'
+         setCallState } from '../actions/index'
+import { setIsDebug } from '../actions/debug'
 import { logger } from 'loglevel'
 import localStore from '../../services/localstorage'
 

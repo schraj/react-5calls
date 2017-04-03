@@ -1,19 +1,27 @@
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose } from 'redux'
+import { routerMiddleware } from 'react-router-redux'
+import {root} from './root'
 import thunk from 'redux-thunk'
-import {root} from './root';
-import {persistStore, autoRehydrate} from 'redux-persist'
 
-const configureStore = preloadedState => {
+const configureStore = (history) => {
+
+  // Middleware Configuration
+  // ======================================================
+
+  // Build the middleware for intercepting and dispatching navigation actions
+  const middlewareForRouter = routerMiddleware(history)
+
+  const middleware = [thunk, middlewareForRouter];
+
+  // ======================================================
+  // Store Instantiation and HMR Setup
+  // ======================================================
   const store = createStore(
     root,
-    preloadedState,
-    applyMiddleware(thunk),
-    autoRehydrate()
+    applyMiddleware(...middleware)
   )
 
-  persistStore(store)
-
-  return store
-} 
+  return store;
+}
 
 export default configureStore

@@ -26,3 +26,14 @@ export const getReportData = (store) => {
         store.dispatch(setReportData(reportData));
     });
 }
+
+// NOT CURRENTLY IMPLEMENTED
+export const postReportData = (outcomeType, paramsObject) => {
+    // create request
+    console.log('would have posted here: outcomeType: %o, params: %o', outcomeType, paramsObject);    
+
+    // post
+    // axios.post(reportUrl).then((response) => {
+    
+    // });
+}

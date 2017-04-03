@@ -1,24 +1,17 @@
 import { push } from 'react-router-redux'
-
+import {
+  SET_REMOTE_DATA,
+  SET_REPORT_DATA,
+  SET_LOCATION_INFO,
+  SET_LOCATION,
+  SET_USERSTATS,
+  SET_CALLSTATE,
+  SELECT_ISSUE,
+  COMPLETE_ISSUE,
+  MOVE_TO_NEXT_CONTACT,
+} from './actionTypes'
 import localStorage from '../../services/localstorage'
-
-export const SET_REMOTE_DATA = 'SET_REMOTEDATA'
-export const SET_REPORT_DATA = 'SET_REPORTDATA'
-export const SET_LOCATION_INFO = 'SET_LOCATION_INFO'
-export const SET_LOCATION = 'SET_LOCATION'
-export const SET_USERSTATS = 'SET_USERSTATS'
-export const SET_CALLSTATE = 'SET_CALLSTATE'
-
-export const SELECT_ISSUE = 'SELECT_ISSUE'
-export const COMPLETE_ISSUE = 'COMPLETE_ISSUE'
-export const MOVE_TO_NEXT_CONTACT = 'MOVE_TO_NEXT_CONTACT'
-
-// Development functionality
-export const SET_DEBUG = 'SET_DEBUG'
-// resets local user stats and completed issues
-export const RESET_ISSUES = 'RESET_ISSUES'
-export const RESET_LOCATION = 'RESET_LOCATION'
-
+import postReportData from '../../services/api'
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
@@ -48,7 +41,6 @@ export const setLocation = (location) => {
     };  
 }
 
-
 export const setUserStats = (userStats) => ({
   type: SET_USERSTATS,
   userStats: userStats
@@ -76,7 +68,9 @@ export const moveToNextContact = () => ({
 // thunk action creator
 export const submitOutcome = (outcomeType, paramsObject) => {
     return (dispatch, getState) => {
-      // TODO: here we would post to the report api
+      // TODO: this currently doesn't actually post
+      paramsObject.via = window.location.host === '5calls.org' ? 'web' : 'test';
+      postReportData(outcomeType, paramsObject);  
 
       let state = getState();
       let currentIssue = state.remoteData.issues.find((i) => { return i.id === state.callState.currentIssueId });
@@ -100,44 +94,4 @@ export const submitOutcome = (outcomeType, paramsObject) => {
         return dispatch(moveToNextContact());  
       }
     };
-}
-
-// Development functionality
-export const setIsDebug = (isDebug) => ({
-  type: SET_DEBUG,
-  isDebug: isDebug
-})
-
-export const resetIssuesAction = () => ({
-  type: RESET_ISSUES
-})
-
-export const resetLocationAction = () => ({
-  type: RESET_LOCATION
-})
-
-export const resetIssues = () => {
-    return (dispatch, getState) => {     
-
-      //reset local storage
-      localStorage.remove('org.5calls.completed', () =>{})
-      localStorage.remove('org.5calls.userStats', () =>{})
-
-      // reset the store
-      dispatch(resetIssuesAction());
-    };  
-}
-
-export const resetLocation = () => {
-    return (dispatch, getState) => {     
-
-      //reset local storage
-      localStorage.remove("org.5calls.location", () => {});
-      localStorage.remove("org.5calls.geolocation", () => {});
-      localStorage.remove("org.5calls.geolocation_city", () => {});
-      localStorage.remove("org.5calls.geolocation_time", () => {});
-
-      // reset the store
-      dispatch(resetLocationAction());
-    };  
 }
