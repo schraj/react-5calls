@@ -87,6 +87,18 @@ export const submitOutcome = (outcomeType, paramsObject) => {
       postReportData(outcomeType, paramsObject);  
 
       let state = getState();
+
+      // set user userStats
+      let stats = state.userStats;
+      stats['all'].push({
+        contactid: paramsObject.contactid,
+        issueid: paramsObject.issueid,
+        result: paramsObject.result,
+        time: new Date().valueOf()
+      });
+      stats[outcomeType] += 1;
+      localStorage.replace("org.5calls.userStats", 0, stats, () => {});
+
       let currentIssue = state.remoteData.issues.find((i) => { return i.id === state.callState.currentIssueId });
       let contactIndex = 0;
       if (state.callState.contactIndices[currentIssue.id]){

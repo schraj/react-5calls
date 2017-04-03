@@ -89,6 +89,8 @@ const initializeStore = (store) => {
   localStore.getAll('org.5calls.userStats', (stats) => {
     if (stats.length > 0) {
       localStats = stats[0];
+    } else {
+      localStore.add("org.5calls.userStats", localStats, () => {});
     }
   });
 

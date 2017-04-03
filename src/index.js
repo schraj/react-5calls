@@ -9,6 +9,8 @@ import MainPage from './app/pages/MainPage';
 import CallPage from './app/pages/CallPage';
 import DonePage from './app/pages/DonePage';
 import AboutPage from './app/pages/AboutPage';
+import ImpactPage from './app/pages/ImpactPage';
+import MorePage from './app/pages/MorePage';
 import {getIssueData, getReportData} from './app/services/api'
 
 import createHistory from 'history/createBrowserHistory'
@@ -36,6 +38,8 @@ render(
         <Route path="/about" component={AboutPage} />
         <Route path="/issue" component={CallPage} />
         <Route path="/done" component={DonePage} />
+        <Route path="/impact" component={ImpactPage} />
+        <Route path="/more" component={MorePage} />
       </div>
     </ConnectedRouter>
   </Provider>,

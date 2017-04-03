@@ -5,7 +5,7 @@ import { selectIssue, setLocation, setAskingLocation } from '../redux/actions/in
 import { resetIssues, resetLocation } from '../redux/actions/debug'
 
 const mapStateToProps = (state) => ({
-  issues: state.remoteData.issues,
+  issues: state.remoteData.activeIssues,
   callState: state.callState,
   locationInfo: state.locationInfo,
   locationProcessing: state.locationProcessing,

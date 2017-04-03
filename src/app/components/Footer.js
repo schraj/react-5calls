@@ -28,9 +28,9 @@ const Footer = () => (
       <Link to="/about">
         <i className="fa fa-heart" aria-hidden="true"></i> About
         </Link>
-      {/*<a id="impact__link" href="/impact">
+      <Link id="impact__link" to="/impact">
           <i className="fa fa-line-chart" aria-hidden="true"></i> Your Impact
-        </a>*/}
+      </Link>
       <a href="https://5calls.zendesk.com/hc/en-us/sections/115000760947-FAQ">
         <i className="fa fa-question-circle" aria-hidden="true"></i> FAQ
         </a>
