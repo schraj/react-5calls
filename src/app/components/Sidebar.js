@@ -5,7 +5,7 @@ import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
 
 const debugText = (isDebug, resetIssues) => {
-  return isDebug ? <a href="#" onClick={resetIssues()}>reset</a> : '';
+  return isDebug ? <a href="#" onClick={resetIssues}>reset</a> : '';
 }
 
 const scrollToTop = () => {

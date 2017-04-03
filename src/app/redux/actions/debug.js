@@ -6,7 +6,6 @@ import {
 } from './actionTypes'
 import localStorage from '../../services/localstorage'
 
-
 export const setIsDebug = (isDebug) => ({
   type: SET_DEBUG,
   isDebug: isDebug

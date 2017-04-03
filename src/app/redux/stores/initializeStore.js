@@ -1,7 +1,9 @@
-import { setLocationInfo, 
-         setRemoteData, 
-         setUserStats, 
-         setCallState } from '../actions/index'
+import {
+  setLocationInfo,
+  setRemoteData,
+  setUserStats,
+  setCallState
+} from '../actions/index'
 import { setIsDebug } from '../actions/debug'
 import { logger } from 'loglevel'
 import localStore from '../../services/localstorage'
@@ -130,7 +132,7 @@ const initializeStore = (store) => {
   }
   store.dispatch(setCallState(callState));
 
-  store.dispatch(setIsDebug(isDebug));  
+  store.dispatch(setIsDebug(isDebug));
 }
 
 

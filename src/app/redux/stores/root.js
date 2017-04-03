@@ -13,7 +13,7 @@ import {SET_REMOTE_DATA,
         COMPLETE_ISSUE,
         RESET_ISSUES,
         RESET_LOCATION
-      } from '../actions'
+      } from '../actions/actionTypes'
 
 export const remoteData = (state = {}, action) => {
   switch (action.type) {

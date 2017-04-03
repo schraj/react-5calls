@@ -1,14 +1,14 @@
-# ContactMap - Built in React/Redux
+# 5Calls - Built in React/Redux
 
 This is a sample migration of the 5calls app to react/redux
 
 This is started with the react-create-app cli
 
-We then used the eject functionality to modify the build.
+I then used the eject functionality to modify the build.
 
 #Modifications to WebPack build
 
-1)  We tried source maps by setting:
+1)  I tried source maps by setting:
 "devtools: "eval-source-map"
 
 However, like the facebook team notes, it is easier to just debug the transpiled code.  The "eval" setting
@@ -16,7 +16,7 @@ However, like the facebook team notes, it is easier to just debug the transpiled
 
 breaks apart the webpack build into the respective files and this works perfectly.
 
-2) To accomodate the use of the react-controllables library, we used the babel plugin:
+2) To accomodate the use of the react-controllables library, I used the babel plugin:
 plugins: ['transform-decorators-legacy']
 
 babel 6 has disabled decorators and these are required for this library.  The react-google-maps component uses
