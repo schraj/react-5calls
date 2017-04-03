@@ -6,15 +6,7 @@ import Contact from './Contact'
 import NoContact from './NoContact'
 import Promote from './Promote'
 
-const getContactArea = (issue, currentContact) => {
-  if (currentContact != null) {
-    return Contact(currentContact)
-  } else {
-    return NoContact()
-  }
-}
-
-class Call extends React.Component {  
+class Call extends React.Component {
   constructor(props) {
     super(props);
     this.setInitialState(props);
@@ -23,14 +15,14 @@ class Call extends React.Component {
   getIssueFromProps = (props) => {
     return props.issues.find((i) => { return i.id === props.callState.currentIssueId });
   }
-  
+
   setInitialState = (props) => {
     let issue = this.getIssueFromProps(props);
     let currentContactIndex = 0;
-    if (props.callState.contactIndices[props.callState.currentIssueId]){
-      currentContactIndex = props.callState.contactIndices[props.callState.currentIssueId];    
+    if (props.callState.contactIndices[props.callState.currentIssueId]) {
+      currentContactIndex = props.callState.contactIndices[props.callState.currentIssueId];
     }
-    let currentContact = issue.contacts[currentContactIndex];    
+    let currentContact = issue.contacts[currentContactIndex];
     let numContactsLeft = issue.contacts.length - currentContactIndex;
 
     this.state = {
@@ -46,10 +38,10 @@ class Call extends React.Component {
   setCurrentState = (newProps) => {
     let currentContactIndex = 0;
     let issue = this.getIssueFromProps(newProps);
-    if (newProps.callState.contactIndices[newProps.callState.currentIssueId]){
-      currentContactIndex = newProps.callState.contactIndices[newProps.callState.currentIssueId];    
+    if (newProps.callState.contactIndices[newProps.callState.currentIssueId]) {
+      currentContactIndex = newProps.callState.contactIndices[newProps.callState.currentIssueId];
     }
-    let currentContact = issue.contacts[currentContactIndex];    
+    let currentContact = issue.contacts[currentContactIndex];
     let numContactsLeft = issue.contacts.length - currentContactIndex;
 
     this.setState({
@@ -66,7 +58,7 @@ class Call extends React.Component {
     console.log("will receive props")
     console.log("newProps: %o", newProps)
 
-    this.setCurrentState(newProps);    
+    this.setCurrentState(newProps);
   }
 
   // shouldComponentUpdate(newProps, newState) {
@@ -96,23 +88,30 @@ class Call extends React.Component {
   //   console.log("did mount")
   // }
 
+  getContactWidget = () => {
+    if (this.state.currentContact != null) {
+      return <Contact contact={this.state.currentContact} issue={this.state.issue} />
+    } else {
+      return NoContact()
+    }
+  }
 
   render() {
-   return (
+    return (
       <section className="call">
         <header className="call__header">
           <h2 className="call__title">{this.state.issue.name}</h2>
           <div className="call__reason">{this.state.issue.reason.split('\n').map((line) => ScriptLine(line))}</div>
         </header>
 
-        {getContactArea(this.state.issue, this.state.currentContact)}
+        {this.getContactWidget()}
 
         {Script(this.state.issue)}
 
-        <Outcomes issue={this.state.issue} 
-                  currentContact={this.state.currentContact} 
-                  numContactsLeft={this.state.numContactsLeft}
-                  onSubmitOutcome={this.props.onSubmitOutcome}/>
+        <Outcomes issue={this.state.issue}
+          currentContact={this.state.currentContact}
+          numContactsLeft={this.state.numContactsLeft}
+          onSubmitOutcome={this.props.onSubmitOutcome} />
 
         <Promote issue={this.state.issue} hasIssue={true} />
 

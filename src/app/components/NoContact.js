@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 const NoContact = (issue, callState) => (
   <div>
-    About
+    No NoContact
   </div>
 )
 

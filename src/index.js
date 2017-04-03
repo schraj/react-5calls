@@ -19,7 +19,12 @@ const history = createHistory()
 const store = configureStore(history)
 initializeStore(store);
 
-getIssueData(store);
+// get initial address
+let address = ''
+if (store.getState().locationInfo){
+  address = store.getState().locationInfo.cachedAddress;
+}
+getIssueData(store, address);
 getReportData(store);
 
 render(

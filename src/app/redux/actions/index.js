@@ -11,7 +11,7 @@ import {
   MOVE_TO_NEXT_CONTACT,
 } from './actionTypes'
 import localStorage from '../../services/localstorage'
-import postReportData from '../../services/api'
+import { postReportData } from '../../services/api'
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,

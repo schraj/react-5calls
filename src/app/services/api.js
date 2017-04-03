@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { setRemoteData, setReportData } from '../redux/actions/index'
 
-const issueUrl = 'https://5calls.org/issues/?address=98502'
+const issueUrl = 'https://5calls.org/issues/?address='
 const reportUrl = 'https://5calls.org/report'
 
-export const getIssueData = (store) => {
-    axios.get(issueUrl).then((response) => {
+export const getIssueData = (store, address) => {
+    axios.get(issueUrl + address).then((response) => {
         const remoteData = {
             issues: response.data.issues,
             activeIssues: response.data.issues,
