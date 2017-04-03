@@ -12,7 +12,7 @@ module.exports = {
       items.push(item)
       saveStore(storeName, JSON.stringify(items), cb)
     })
-  },
+  },  
   replace: (storeName, index, item, cb) => {
     module.exports.getAll(storeName, (items) => {
       items[index] = item

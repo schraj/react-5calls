@@ -1,19 +1,17 @@
-import { setAddress, 
-         setGeolocationInfo, 
+import { setLocationInfo, 
          setRemoteData, 
          setUserStats, 
          setCallState,
-         setCompletedIssues,
-         setDebug } from '../actions/index'
+         setIsDebug } from '../actions/index'
 import { logger } from 'loglevel'
 import localStore from '../../services/localstorage'
 
 const initializeStore = (store) => {
 
   // use localStorage directly to set this value *before* bootstrapping the app.
-  const debug = (localStorage['org.5calls.debug'] === 'true');
+  const isDebug = (localStorage['org.5calls.debug'] === 'true');
 
-  if (debug) {
+  if (isDebug) {
     // we don't need loglevel's built-in persistence; we do it ourselves above ^
     logger.setLevel(logger.levels.TRACE, false);
   }
@@ -35,8 +33,6 @@ const initializeStore = (store) => {
     }
   });
 
-  let cachedFetchingLocation = (cachedGeo === '') ? true : false;
-
   // get the stored geo location
   let cachedAllowBrowserGeo = true;
   localStore.getAll('org.5calls.allow_geolocation', (allowGeo) => {
@@ -45,8 +41,6 @@ const initializeStore = (store) => {
       cachedAllowBrowserGeo = allowGeo[0]
     }
   });
-
-  let cachedLocationFetchType = (cachedAllowBrowserGeo) ? 'browserGeolocation' : 'ipAddress';
 
   // get the time the geo was last fetched
   let cachedGeoTime = '';
@@ -64,9 +58,6 @@ const initializeStore = (store) => {
       cachedCity = city[0]
     }
   });
-
-  cachedFetchingLocation = (cachedCity !== '') ? true : cachedFetchingLocation;
-  cachedLocationFetchType = (cachedAddress !== '') ? 'address' : cachedLocationFetchType;
 
   // get the stored completed issues
   let completedIssues = [];
@@ -108,16 +99,21 @@ const initializeStore = (store) => {
   }
   store.dispatch(setRemoteData(remoteData));
 
-  store.dispatch(setAddress(cachedAddress));
+  // let cachedFetchingLocation = (cachedGeo === '') ? true : false;
+  // let cachedLocationFetchType = (cachedAllowBrowserGeo) ? 'browserGeolocation' : 'ipAddress';
 
-  const geolocationInfo = {
+  // cachedFetchingLocation = (cachedCity !== '') ? true : cachedFetchingLocation;
+  // cachedLocationFetchType = (cachedAddress !== '') ? 'address' : cachedLocationFetchType;
+
+  const locationInfo = {
     geolocation: cachedGeo,
     geoCacheTime: cachedGeoTime,
     allowBrowserGeo: cachedAllowBrowserGeo,
     cachedCity: cachedCity,
+    cachedAddress: cachedAddress
   }
 
-  store.dispatch(setGeolocationInfo(geolocationInfo));
+  store.dispatch(setLocationInfo(locationInfo));
 
   store.dispatch(setUserStats(localStats));
 
@@ -125,14 +121,14 @@ const initializeStore = (store) => {
     // askingLocation: false,
     // fetchingLocation: cachedFetchingLocation,
     // locationFetchType: cachedLocationFetchType,
-    showFieldOfficeNumbers: false,
+    //showFieldOfficeNumbers: false,
     currentIssueId: null,
     contactIndices: {},
+    completedIssues: completedIssues
   }
   store.dispatch(setCallState(callState));
 
-  store.dispatch(setCompletedIssues(completedIssues));
-  store.dispatch(setDebug(debug));  
+  store.dispatch(setIsDebug(isDebug));  
 }
 
 

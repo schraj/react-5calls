@@ -3,8 +3,7 @@ import { routerReducer } from 'react-router-redux'
 
 import {SET_REMOTE_DATA, 
         SET_REPORT_DATA,
-        SET_ADDRESS, 
-        SET_GEOLOCATION_INFO, 
+        SET_LOCATION_INFO, 
         SET_CALLSTATE,
         SET_DEBUG, 
         SET_USERSTATS, 
@@ -31,19 +30,10 @@ export const reportData = (state = {}, action) => {
   }
 }
 
-export const geolocation = (state = {}, action) => {
+export const locationInfo = (state = {}, action) => {
   switch (action.type) {
-    case SET_GEOLOCATION_INFO:
-      return action.geolocationInfo
-    default:
-      return state
-  }
-}
-
-export const address = (state = "", action) => {
-  switch (action.type) {
-    case SET_ADDRESS:
-      return action.address
+    case SET_LOCATION_INFO:
+      return action.locationInfo
     default:
       return state
   }
@@ -83,7 +73,7 @@ export const callState = (state = {}, action) => {
   }
 }
 
-export const debug = (state = false, action) => {
+export const isDebug = (state = false, action) => {
   switch (action.type) {
     case SET_DEBUG:
       return action.isDebug
@@ -95,10 +85,9 @@ export const debug = (state = false, action) => {
 export const root = combineReducers({
   remoteData,
   reportData,
-  address,
-  geolocation,
+  locationInfo,
   userStats,
   callState,
-  debug,
+  isDebug,
   router: routerReducer
 })

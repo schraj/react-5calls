@@ -12,10 +12,10 @@ const scrollToTop = () => {
   window.scroll(0,0);
 }
 
-const Sidebar = ({issues, callState, isDebug, onSelectIssue, reset}) => (
+const Sidebar = ({issues, callState, locationInfo, invalidAddress, isDebug, onSelectIssue, reset}) => (
   <aside id="nav" role="contentinfo" className="layout__side">
     <div className="issues">
-      {IssuesHeader(issues, callState, isDebug)}
+      {IssuesHeader(issues, callState, locationInfo, invalidAddress, isDebug, reset)}
       {IssueList(issues, callState, onSelectIssue)}
       <Link to="/more" className="issues__footer-link" onClick={scrollToTop()}>view more issues</Link>
       {debugText(isDebug)}
@@ -26,8 +26,11 @@ const Sidebar = ({issues, callState, isDebug, onSelectIssue, reset}) => (
 Sidebar.propTypes = {
   issues: PropTypes.any.isRequired,
   callState: PropTypes.any.isRequired,
+  locationInfo: PropTypes.any.isRequired,
+  invalidAddress: PropTypes.bool.isRequired,
+  isDebug: PropTypes.bool.isRequired,
   onSelectIssue: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired
+  reset: PropTypes.func.isRequired,
 }
 
 export default Sidebar

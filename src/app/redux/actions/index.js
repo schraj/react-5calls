@@ -4,15 +4,18 @@ import localStorage from '../../services/localstorage'
 
 export const SET_REMOTE_DATA = 'SET_REMOTEDATA'
 export const SET_REPORT_DATA = 'SET_REPORTDATA'
-export const SET_ADDRESS = 'SET_ADDRESS'
-export const SET_GEOLOCATION_INFO = 'SET_GEOLOCATION_INFO'
+export const SET_LOCATION_INFO = 'SET_LOCATION_INFO'
 export const SET_USERSTATS = 'SET_USERSTATS'
 export const SET_CALLSTATE = 'SET_CALLSTATE'
-export const SET_DEBUG = 'SET_DEBUG'
 
 export const SELECT_ISSUE = 'SELECT_ISSUE'
 export const COMPLETE_ISSUE = 'COMPLETE_ISSUE'
 export const MOVE_TO_NEXT_CONTACT = 'MOVE_TO_NEXT_CONTACT'
+
+// Development functionality
+export const SET_DEBUG = 'SET_DEBUG'
+// resets local user stats and completed issues
+export const RESET = 'RESET'
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
@@ -24,14 +27,9 @@ export const setReportData = (reportData) => ({
   reportData: reportData
 })
 
-export const setGeolocationInfo = (info) => ({
-  type: SET_GEOLOCATION_INFO,
-  geolocationInfo: info
-})
-
-export const setAddress = (address) => ({
-  type: SET_ADDRESS,
-  address: address
+export const setLocationInfo = (locationInfo) => ({
+  type: SET_LOCATION_INFO,
+  locationInfo: locationInfo
 })
 
 export const setUserStats = (userStats) => ({
@@ -42,11 +40,6 @@ export const setUserStats = (userStats) => ({
 export const setCallState = (callState) => ({
   type: SET_CALLSTATE,
   callState: callState
-})
-
-export const setDebug = (isDebug) => ({
-  type: SET_DEBUG,
-  isDebug: isDebug
 })
 
 export const selectIssue = (id) => ({
@@ -90,4 +83,26 @@ export const submitOutcome = (outcomeType, paramsObject) => {
         return dispatch(moveToNextContact());  
       }
     };
+}
+
+// Development functionality
+export const setIsDebug = (isDebug) => ({
+  type: SET_DEBUG,
+  isDebug: isDebug
+})
+
+export const resetAction = () => ({
+  type: RESET
+})
+
+export const reset = () => {
+    return (dispatch, getState) => {     
+
+      //reset local storage
+      localStorage.remove('org.5calls.completed', () =>{})
+      localStorage.remove('org.5calls.userStats', () =>{})
+
+      // reset the store
+      dispatch(reset());
+    };  
 }
