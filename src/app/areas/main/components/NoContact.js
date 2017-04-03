@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-const NoContact = (issue, uiState) => (
+const NoContact = (issue, callState) => (
   <div>
     About
   </div>
@@ -8,7 +8,7 @@ const NoContact = (issue, uiState) => (
 
 NoContact.propTypes = {
   issue: PropTypes.any.isRequired,
-  uiState: PropTypes.any.isRequired
+  callState: PropTypes.any.isRequired
 }
 
 export default NoContact

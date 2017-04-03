@@ -5,7 +5,7 @@ import { selectIssue } from '../../../redux/actions/index'
 
 const mapStateToProps = (state) => ({
   issues: state.remoteData.issues,
-  uiState: state.uiState
+  callState: state.callState
 })
 
 const mapDispatchToProps =  ({

@@ -21,7 +21,7 @@ class Done extends React.Component {
   }
 
   getIssueFromProps = (props) => {
-    return props.issues.find((i) => { return i.id === props.uiState.currentIssueId });
+    return props.issues.find((i) => { return i.id === props.callState.currentIssueId });
   }
 
   componentWillReceiveProps(newProps) {
@@ -82,7 +82,7 @@ class Done extends React.Component {
 
 Done.propTypes = {
   issues: PropTypes.any.isRequired,
-  uiState: PropTypes.any.isRequired,
+  callState: PropTypes.any.isRequired,
   totalCalls: PropTypes.string.isRequired
 }
 

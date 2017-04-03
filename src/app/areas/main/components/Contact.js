@@ -20,7 +20,7 @@ const cityFormat = (office, c) => {
   }
 }
 
-const getFieldOfficesWidget = (showFieldOfficeNumbers, c) => {
+const getFieldOfficesWidget = (c, showFieldOfficeNumbers) => {
   if (c.field_offices) {
     if (!showFieldOfficeNumbers) {
       return <p className="call__contact__show-field-offices">Busy line? <a onClick={() => { }}>Click here to see local office numbers</a></p>
@@ -32,7 +32,7 @@ const getFieldOfficesWidget = (showFieldOfficeNumbers, c) => {
             <h3 className="call__contact__field-offices__header">Local office numbers:</h3>
             <ul className="call__contact__field-office-list">
               {c.field_offices.map(office =>
-                <li><a href="tel:+1{office.phone.replace(/-/g, '')}">{office.phone}</a> {cityFormat(office, c)}</li>
+                <li><a href={`tel:+1${office.phone.replace(/-/g, '')}`}>{office.phone}</a> {cityFormat(office, c)}</li>
               )}
             </ul>
           </div>
@@ -42,7 +42,7 @@ const getFieldOfficesWidget = (showFieldOfficeNumbers, c) => {
   }
 }
 
-const Contact = (c) => (
+const Contact = (c, showFieldOfficeNumbers) => (
   <div className="call__contact" id="contact">
     <div className="call__contact__image"><img alt="" src={getPhotoURL(c)} /></div>
     <h3 className="call__contact__type">Call this office:</h3>
@@ -50,14 +50,15 @@ const Contact = (c) => (
     <p className="call__contact__phone">
       <a href="tel:+1{c.phone}">+1 {c.phone}</a>
     </p>
-    {getFieldOfficesWidget(false, c)}
+    {getFieldOfficesWidget(c, showFieldOfficeNumbers)}
     <h3 className="call__contact__reason__header">Why you’re calling this office:</h3>
     <p className="call__contact__reason">{c.reason}</p>
   </div>
 )
 
-Contact.propTypes = {
-  c: PropTypes.any.isRequired
+Contact.propTypes = {  
+  c: PropTypes.any.isRequired,
+  showFieldOfficeNumbers: PropTypes.bool.isRequired
 }
 
 export default Contact

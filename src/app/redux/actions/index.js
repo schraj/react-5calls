@@ -7,7 +7,8 @@ export const SET_REPORT_DATA = 'SET_REPORTDATA'
 export const SET_ADDRESS = 'SET_ADDRESS'
 export const SET_GEOLOCATION_INFO = 'SET_GEOLOCATION_INFO'
 export const SET_USERSTATS = 'SET_USERSTATS'
-export const SET_UISTATE = 'SET_UISTATE'
+export const SET_CALLSTATE = 'SET_CALLSTATE'
+export const SET_DEBUG = 'SET_DEBUG'
 
 export const SELECT_ISSUE = 'SELECT_ISSUE'
 export const COMPLETE_ISSUE = 'COMPLETE_ISSUE'
@@ -38,9 +39,14 @@ export const setUserStats = (userStats) => ({
   userStats: userStats
 })
 
-export const setUiState = (uiState) => ({
-  type: SET_UISTATE,
-  uiState: uiState
+export const setCallState = (callState) => ({
+  type: SET_CALLSTATE,
+  callState: callState
+})
+
+export const setDebug = (isDebug) => ({
+  type: SET_DEBUG,
+  isDebug: isDebug
 })
 
 export const selectIssue = (id) => ({
@@ -63,10 +69,10 @@ export const submitOutcome = (outcomeType, paramsObject) => {
       // TODO: here we would post to the report api
 
       let state = getState();
-      let currentIssue = state.remoteData.issues.find((i) => { return i.id === state.uiState.currentIssueId });
+      let currentIssue = state.remoteData.issues.find((i) => { return i.id === state.callState.currentIssueId });
       let contactIndex = 0;
-      if (state.uiState.contactIndices[currentIssue.id]){
-        contactIndex = state.uiState.contactIndices[currentIssue.id];    
+      if (state.callState.contactIndices[currentIssue.id]){
+        contactIndex = state.callState.contactIndices[currentIssue.id];    
       }
 
       if ((currentIssue.contacts.length -1) === contactIndex){

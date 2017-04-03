@@ -22,21 +22,21 @@ const classString = () => {
   return classes.join(' ');
 }
 
-const IssuesHeader = (issues, uiState) => (
+const IssuesHeader = (issues, callState) => (
   <header className={classString()} role="banner">
     <h1 className="issues__title">
       <Link to="/">
         <img className="issues__logo" src="/assets/images/5calls-logotype.png" alt="5 Calls" />5 Calls
       </Link>
     </h1>
-    {IssuesLocation(uiState)}
+    {IssuesLocation(callState)}
     {issueExplain(issues)}
   </header>
 )
 
 IssuesHeader.propTypes = {
   issues: PropTypes.any.isRequired,
-  uiState: PropTypes.any.uiState
+  callState: PropTypes.any.isRequired
 }
 
 export default IssuesHeader

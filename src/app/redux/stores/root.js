@@ -5,7 +5,8 @@ import {SET_REMOTE_DATA,
         SET_REPORT_DATA,
         SET_ADDRESS, 
         SET_GEOLOCATION_INFO, 
-        SET_UISTATE, 
+        SET_CALLSTATE,
+        SET_DEBUG, 
         SET_USERSTATS, 
         SELECT_ISSUE,
         MOVE_TO_NEXT_CONTACT,
@@ -57,10 +58,10 @@ export const userStats = (state = {}, action) => {
   }
 }
 
-export const uiState = (state = {}, action) => {
+export const callState = (state = {}, action) => {
   switch (action.type) {
-    case SET_UISTATE:
-      return action.uiState
+    case SET_CALLSTATE:
+      return action.callState
     case SELECT_ISSUE:
       return {...state, currentIssueId: action.id}
     case MOVE_TO_NEXT_CONTACT:
@@ -82,12 +83,22 @@ export const uiState = (state = {}, action) => {
   }
 }
 
+export const debug = (state = false, action) => {
+  switch (action.type) {
+    case SET_DEBUG:
+      return action.isDebug
+    default:
+      return state
+  }
+}
+
 export const root = combineReducers({
   remoteData,
   reportData,
   address,
   geolocation,
   userStats,
-  uiState,
+  callState,
+  debug,
   router: routerReducer
 })

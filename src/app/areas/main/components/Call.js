@@ -21,14 +21,14 @@ class Call extends React.Component {
   }
 
   getIssueFromProps = (props) => {
-    return props.issues.find((i) => { return i.id === props.uiState.currentIssueId });
+    return props.issues.find((i) => { return i.id === props.callState.currentIssueId });
   }
   
   setInitialState = (props) => {
     let issue = this.getIssueFromProps(props);
     let currentContactIndex = 0;
-    if (props.uiState.contactIndices[props.uiState.currentIssueId]){
-      currentContactIndex = props.uiState.contactIndices[props.uiState.currentIssueId];    
+    if (props.callState.contactIndices[props.callState.currentIssueId]){
+      currentContactIndex = props.callState.contactIndices[props.callState.currentIssueId];    
     }
     let currentContact = issue.contacts[currentContactIndex];    
     let numContactsLeft = issue.contacts.length - currentContactIndex;
@@ -46,8 +46,8 @@ class Call extends React.Component {
   setCurrentState = (newProps) => {
     let currentContactIndex = 0;
     let issue = this.getIssueFromProps(newProps);
-    if (newProps.uiState.contactIndices[newProps.uiState.currentIssueId]){
-      currentContactIndex = newProps.uiState.contactIndices[newProps.uiState.currentIssueId];    
+    if (newProps.callState.contactIndices[newProps.callState.currentIssueId]){
+      currentContactIndex = newProps.callState.contactIndices[newProps.callState.currentIssueId];    
     }
     let currentContact = issue.contacts[currentContactIndex];    
     let numContactsLeft = issue.contacts.length - currentContactIndex;
@@ -123,7 +123,7 @@ class Call extends React.Component {
 
 Call.propTypes = {
   issues: PropTypes.any.isRequired,
-  uiState: PropTypes.any.isRequired,
+  callState: PropTypes.any.isRequired,
   onSubmitOutcome: PropTypes.any.isRequired
 }
 

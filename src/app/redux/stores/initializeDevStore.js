@@ -1,4 +1,10 @@
-import { setAddress, setGeolocationInfo, setRemoteData, setUserStats, setUiState } from '../actions/index'
+import { setAddress, 
+         setGeolocationInfo, 
+         setRemoteData, 
+         setUserStats, 
+         setCallState,
+         setCompletedIssues,
+         setDebug } from '../actions/index'
 import { logger } from 'loglevel'
 import localStore from '../../services/localstorage'
 
@@ -115,17 +121,19 @@ const initializeStore = (store) => {
 
   store.dispatch(setUserStats(localStats));
 
-  const uiState = {
-    askingLocation: false,
-    fetchingLocation: cachedFetchingLocation,
-    locationFetchType: cachedLocationFetchType,
+  const callState = {
+    // askingLocation: false,
+    // fetchingLocation: cachedFetchingLocation,
+    // locationFetchType: cachedLocationFetchType,
+    showFieldOfficeNumbers: false,
     currentIssueId: null,
     contactIndices: {},
-    completedIssues: completedIssues,
-    showFieldOfficeNumbers: false,
-    debug: debug,
   }
-  store.dispatch(setUiState(uiState));
+  store.dispatch(setCallState(callState));
+
+  store.dispatch(setCompletedIssues(completedIssues));
+  store.dispatch(setDebug(debug));  
 }
+
 
 export default initializeStore
