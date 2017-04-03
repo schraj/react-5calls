@@ -4,12 +4,15 @@ import { routerReducer } from 'react-router-redux'
 import {SET_REMOTE_DATA, 
         SET_REPORT_DATA,
         SET_LOCATION_INFO, 
+        SET_LOCATION, 
         SET_CALLSTATE,
         SET_DEBUG, 
         SET_USERSTATS, 
         SELECT_ISSUE,
         MOVE_TO_NEXT_CONTACT,
-        COMPLETE_ISSUE
+        COMPLETE_ISSUE,
+        RESET_ISSUES,
+        RESET_LOCATION
       } from '../actions'
 
 export const remoteData = (state = {}, action) => {
@@ -34,6 +37,18 @@ export const locationInfo = (state = {}, action) => {
   switch (action.type) {
     case SET_LOCATION_INFO:
       return action.locationInfo
+    case SET_LOCATION:
+      return {...state, cachedAddress: action.location} 
+    case RESET_LOCATION:    
+      return {
+        geolocation: null,
+        geoCacheTime: null,
+        allowBrowserGeo: null,
+        cachedCity: null,
+        cachedAddress: null,
+        cachedFetchingLocation: null,
+        cachedLocationFetchType: null
+      }
     default:
       return state
   }
@@ -68,6 +83,9 @@ export const callState = (state = {}, action) => {
       let newState = {...state };
       newState.completedIssues = newCompletedIssues;
       return newState;
+    case RESET_ISSUES: {
+      return {...state, contactIndices: {}, completedIssues:[], currentIssueId: null}
+    }
     default:
       return state
   }

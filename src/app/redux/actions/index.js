@@ -5,6 +5,7 @@ import localStorage from '../../services/localstorage'
 export const SET_REMOTE_DATA = 'SET_REMOTEDATA'
 export const SET_REPORT_DATA = 'SET_REPORTDATA'
 export const SET_LOCATION_INFO = 'SET_LOCATION_INFO'
+export const SET_LOCATION = 'SET_LOCATION'
 export const SET_USERSTATS = 'SET_USERSTATS'
 export const SET_CALLSTATE = 'SET_CALLSTATE'
 
@@ -15,7 +16,9 @@ export const MOVE_TO_NEXT_CONTACT = 'MOVE_TO_NEXT_CONTACT'
 // Development functionality
 export const SET_DEBUG = 'SET_DEBUG'
 // resets local user stats and completed issues
-export const RESET = 'RESET'
+export const RESET_ISSUES = 'RESET_ISSUES'
+export const RESET_LOCATION = 'RESET_LOCATION'
+
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
@@ -31,6 +34,20 @@ export const setLocationInfo = (locationInfo) => ({
   type: SET_LOCATION_INFO,
   locationInfo: locationInfo
 })
+
+export const setLocationAction = (location) => ({
+  type: SET_LOCATION,
+  location: location
+})
+
+export const setLocation = (location) => {
+    return (dispatch, getState) => {     
+      localStorage.remove('org.5calls.location', () =>{})
+      localStorage.add('org.5calls.location', location, () =>{})
+      dispatch(setLocationAction(location));
+    };  
+}
+
 
 export const setUserStats = (userStats) => ({
   type: SET_USERSTATS,
@@ -91,11 +108,15 @@ export const setIsDebug = (isDebug) => ({
   isDebug: isDebug
 })
 
-export const resetAction = () => ({
-  type: RESET
+export const resetIssuesAction = () => ({
+  type: RESET_ISSUES
 })
 
-export const reset = () => {
+export const resetLocationAction = () => ({
+  type: RESET_LOCATION
+})
+
+export const resetIssues = () => {
     return (dispatch, getState) => {     
 
       //reset local storage
@@ -103,6 +124,20 @@ export const reset = () => {
       localStorage.remove('org.5calls.userStats', () =>{})
 
       // reset the store
-      dispatch(reset());
+      dispatch(resetIssuesAction());
+    };  
+}
+
+export const resetLocation = () => {
+    return (dispatch, getState) => {     
+
+      //reset local storage
+      localStorage.remove("org.5calls.location", () => {});
+      localStorage.remove("org.5calls.geolocation", () => {});
+      localStorage.remove("org.5calls.geolocation_city", () => {});
+      localStorage.remove("org.5calls.geolocation_time", () => {});
+
+      // reset the store
+      dispatch(resetLocationAction());
     };  
 }

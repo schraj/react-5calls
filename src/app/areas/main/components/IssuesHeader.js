@@ -22,14 +22,14 @@ const classString = () => {
   return classes.join(' ');
 }
 
-const IssuesHeader = (issues, callState, locationInfo, invalidAddress, isDebug, reset) => (
+const IssuesHeader = (issues, callState, locationInfo, invalidAddress, isDebug, resetLocation, setLocation) => (
   <header className={classString()} role="banner">
     <h1 className="issues__title">
       <Link to="/">
         <img className="issues__logo" src="/assets/images/5calls-logotype.png" alt="5 Calls" />5 Calls
       </Link>
     </h1>
-    <IssuesLocation callState={callState} locationInfo={locationInfo} invalidAddress={invalidAddress} isDebug={isDebug} reset={reset} />
+    <IssuesLocation callState={callState} locationInfo={locationInfo} invalidAddress={invalidAddress} isDebug={isDebug} resetLocation={resetLocation} setLocation={setLocation}/>
     {issueExplain(issues)}
   </header>
 )
@@ -39,7 +39,8 @@ IssuesHeader.propTypes = {
   callState: PropTypes.any.isRequired,
   locationInfo: PropTypes.any.isRequired,
   isDebug: PropTypes.bool.isRequired,
-  reset: PropTypes.func.isRequired,
+  resetLocation: PropTypes.func.isRequired,
+  setLocation: PropTypes.func.isRequired,
  }
 
 export default IssuesHeader

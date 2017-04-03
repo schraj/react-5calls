@@ -99,18 +99,20 @@ const initializeStore = (store) => {
   }
   store.dispatch(setRemoteData(remoteData));
 
-  // let cachedFetchingLocation = (cachedGeo === '') ? true : false;
-  // let cachedLocationFetchType = (cachedAllowBrowserGeo) ? 'browserGeolocation' : 'ipAddress';
+  let cachedFetchingLocation = (cachedGeo === '') ? true : false;
+  let cachedLocationFetchType = (cachedAllowBrowserGeo) ? 'browserGeolocation' : 'ipAddress';
 
-  // cachedFetchingLocation = (cachedCity !== '') ? true : cachedFetchingLocation;
-  // cachedLocationFetchType = (cachedAddress !== '') ? 'address' : cachedLocationFetchType;
+  cachedFetchingLocation = (cachedCity !== '') ? true : cachedFetchingLocation;
+  cachedLocationFetchType = (cachedAddress !== '') ? 'address' : cachedLocationFetchType;
 
   const locationInfo = {
     geolocation: cachedGeo,
     geoCacheTime: cachedGeoTime,
     allowBrowserGeo: cachedAllowBrowserGeo,
     cachedCity: cachedCity,
-    cachedAddress: cachedAddress
+    cachedAddress: cachedAddress,
+    cachedFetchingLocation: cachedFetchingLocation,
+    cachedLocationFetchType: cachedLocationFetchType
   }
 
   store.dispatch(setLocationInfo(locationInfo));

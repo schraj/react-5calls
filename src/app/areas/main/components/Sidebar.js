@@ -4,21 +4,21 @@ import { Link } from 'react-router-dom';
 import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
 
-const debugText = (isDebug, reset) => {
-  return isDebug ? <a href="#" onClick={reset()}>reset</a> : '';
+const debugText = (isDebug, resetIssues) => {
+  return isDebug ? <a href="#" onClick={resetIssues()}>reset</a> : '';
 }
 
 const scrollToTop = () => {
   window.scroll(0,0);
 }
 
-const Sidebar = ({issues, callState, locationInfo, invalidAddress, isDebug, onSelectIssue, reset}) => (
+const Sidebar = ({issues, callState, locationInfo, invalidAddress, isDebug, onSelectIssue, resetIssues, resetLocation, setLocation}) => (
   <aside id="nav" role="contentinfo" className="layout__side">
     <div className="issues">
-      {IssuesHeader(issues, callState, locationInfo, invalidAddress, isDebug, reset)}
+      {IssuesHeader(issues, callState, locationInfo, invalidAddress, isDebug, resetLocation, setLocation)}
       {IssueList(issues, callState, onSelectIssue)}
       <Link to="/more" className="issues__footer-link" onClick={scrollToTop()}>view more issues</Link>
-      {debugText(isDebug)}
+      {debugText(isDebug, resetIssues)}
     </div>
   </aside>
 )
@@ -30,7 +30,9 @@ Sidebar.propTypes = {
   invalidAddress: PropTypes.bool.isRequired,
   isDebug: PropTypes.bool.isRequired,
   onSelectIssue: PropTypes.func.isRequired,
-  reset: PropTypes.func.isRequired,
+  resetIssues: PropTypes.func.isRequired,
+  resetLocation: PropTypes.func.isRequired,
+  setLocation: PropTypes.func.isRequired
 }
 
 export default Sidebar

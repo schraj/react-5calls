@@ -53,11 +53,18 @@ class IssuesLocation extends React.Component {
   // }
 
   enterLocation = () => {
-
+    this.setState({askingLocation: true});
   }
 
-  debugText = (isDebug) => {
-    return isDebug ? <a href="#" onClick={this.props.reset()}>reset</a> : '';
+  submitAddress = (e) => {
+    e.preventDefault();
+    const address = e.currentTarget[0].value;
+    this.props.setLocation(address);
+    this.setState({askingLocation: false});
+  }
+
+  debugText = () => {
+    return this.props.isDebug ? <button onClick={this.props.resetLocation}>reset</button> : "";
   }
 
   pretext = () => {
@@ -66,21 +73,26 @@ class IssuesLocation extends React.Component {
     } else if (this.state.askingLocation) {
       return "";
     } else if (this.props.invalidAddress) {
-      return <p><button className="subtle-button" onClick={this.enterLocation()}>That address is invalid, please try again</button></p>;
-    } else if (this.props.locationInfo.address) {
-      return <p>for <button className="subtle-button" onClick={this.enterLocation()}>{this.props.address}</button></p>;
+      return <p><button className="subtle-button" onClick={this.enterLocation}>That address is invalid, please try again</button></p>;
+    } else if (this.props.locationInfo.cachedAddress) {
+      return <p>for <button className="subtle-button" onClick={this.enterLocation}>{this.props.locationInfo.cachedAddress}</button></p>;
     } else if (this.props.locationInfo.cachedCity) {
-      return <p>for <button className="subtle-button" onClick={this.enterLocation()}> {this.props.geolocationInfo.cachedCity}</button> {this.debugText(this.props.isDebug)}</p>;
+      return <p>for <button className="subtle-button" onClick={this.enterLocation}> {this.props.locationInfo.cachedCity}</button> {this.debugText()}</p>;
     } else {
-      return <p><button className="subtle-button" onClick={this.enterLocation()}>Choose a location</button></p>;
+      return <p><button className="subtle-button" onClick={this.enterLocation}>Choose a location</button></p>;
     }
   }
 
+  addressForm(state) {
+    const className = (this.state.askingLocation && !this.state.fetchingLocation) ? '' : 'hidden';
+    return <form onSubmit={this.submitAddress} className={className}><input type="text" autoFocus="true" id="address" name="address" placeholder="Enter an address or zip code" /> <button>Go</button></form>;
+  }
+  
   render() {
     return (
       <div className="issues__location">
         {this.pretext()}
-        {/*{addressForm()}*/}
+        {this.addressForm()}
       </div>
     )
   }
@@ -91,7 +103,8 @@ IssuesLocation.propTypes = {
   locationInfo: PropTypes.any.isRequired,
   invalidAddress: PropTypes.bool.isRequired,
   isDebug: PropTypes.any.isRequired,
-  reset: PropTypes.func.isRequired,
+  resetLocation: PropTypes.func.isRequired,
+  setLocation: PropTypes.func.isRequired
 }
 
 export default IssuesLocation
