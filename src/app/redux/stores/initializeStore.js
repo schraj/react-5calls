@@ -2,7 +2,8 @@ import {
   setLocationInfo,
   setRemoteData,
   setUserStats,
-  setCallState
+  setCallState,
+  setAskingLocation
 } from '../actions/index'
 import { setIsDebug } from '../actions/debug'
 import { logger } from 'loglevel'
@@ -122,18 +123,15 @@ const initializeStore = (store) => {
   store.dispatch(setUserStats(localStats));
 
   const callState = {
-    // askingLocation: false,
-    // fetchingLocation: cachedFetchingLocation,
-    // locationFetchType: cachedLocationFetchType,
-    //showFieldOfficeNumbers: false,
     currentIssueId: null,
     contactIndices: {},
     completedIssues: completedIssues
   }
   store.dispatch(setCallState(callState));
 
+  store.dispatch(setAskingLocation(false));
+
   store.dispatch(setIsDebug(isDebug));
 }
-
 
 export default initializeStore

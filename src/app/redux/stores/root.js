@@ -6,11 +6,12 @@ import {SET_REMOTE_DATA,
         SET_LOCATION_INFO, 
         SET_LOCATION, 
         SET_CALLSTATE,
-        SET_DEBUG, 
         SET_USERSTATS, 
         SELECT_ISSUE,
         MOVE_TO_NEXT_CONTACT,
         COMPLETE_ISSUE,
+        SET_ASKINGLOCATION,
+        SET_DEBUG, 
         RESET_ISSUES,
         RESET_LOCATION
       } from '../actions/actionTypes'
@@ -91,6 +92,15 @@ export const callState = (state = {}, action) => {
   }
 }
 
+export const locationProcessing = (state = {}, action) => {
+  switch (action.type) {
+    case SET_ASKINGLOCATION:
+      return {...state, askingLocation: action.askingLocation}
+    default:
+      return state
+  }
+}
+
 export const isDebug = (state = false, action) => {
   switch (action.type) {
     case SET_DEBUG:
@@ -106,6 +116,7 @@ export const root = combineReducers({
   locationInfo,
   userStats,
   callState,
-  isDebug,
+  locationProcessing,
+  isDebug,  
   router: routerReducer
 })

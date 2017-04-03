@@ -92,7 +92,7 @@ class Call extends React.Component {
     if (this.state.currentContact != null) {
       return <Contact contact={this.state.currentContact} issue={this.state.issue} />
     } else {
-      return NoContact()
+      return NoContact(this.props.splitDistrict, this.props.locationInfo, this.props.onEnterLocation)
     }
   }
 
@@ -106,12 +106,16 @@ class Call extends React.Component {
 
         {this.getContactWidget()}
 
-        {Script(this.state.issue)}
+        {this.state.currentContact && 
+          Script(this.state.issue)
+        }
 
-        <Outcomes issue={this.state.issue}
+        {this.state.currentContact && 
+          <Outcomes issue={this.state.issue}
           currentContact={this.state.currentContact}
           numContactsLeft={this.state.numContactsLeft}
           onSubmitOutcome={this.props.onSubmitOutcome} />
+        }
 
         <Promote issue={this.state.issue} hasIssue={true} />
 
@@ -123,7 +127,10 @@ class Call extends React.Component {
 Call.propTypes = {
   issues: PropTypes.any.isRequired,
   callState: PropTypes.any.isRequired,
-  onSubmitOutcome: PropTypes.any.isRequired
+  splitDistrict: PropTypes.string.isRequired,
+  locationInfo: PropTypes.any.isRequired,
+  onEnterLocation: PropTypes.func.isRequired,
+  onSubmitOutcome: PropTypes.func.isRequired
 }
 
 export default Call

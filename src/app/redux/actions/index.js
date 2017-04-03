@@ -9,6 +9,7 @@ import {
   SELECT_ISSUE,
   COMPLETE_ISSUE,
   MOVE_TO_NEXT_CONTACT,
+  SET_ASKINGLOCATION
 } from './actionTypes'
 import localStorage from '../../services/localstorage'
 import { getIssueData, postReportData } from '../../services/api'
@@ -28,6 +29,11 @@ export const setLocationInfo = (locationInfo) => ({
   locationInfo: locationInfo
 })
 
+export const setAskingLocation = (askingLocation) => ({
+  type: SET_ASKINGLOCATION,
+  askingLocation: askingLocation
+})
+
 export const setLocationAction = (location) => ({
   type: SET_LOCATION,
   location: location
@@ -41,7 +47,11 @@ export const setLocation = (location) => {
       // get new issue data for this new location  
       getIssueData(dispatch, location);
 
+      // enter the new location into the store
       dispatch(setLocationAction(location));
+
+      // indicate that the user is done setting a location
+      dispatch(setAskingLocation(false));
     };  
 }
 

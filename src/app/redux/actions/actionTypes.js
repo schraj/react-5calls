@@ -8,6 +8,7 @@ export const SET_CALLSTATE = 'SET_CALLSTATE'
 export const SELECT_ISSUE = 'SELECT_ISSUE'
 export const COMPLETE_ISSUE = 'COMPLETE_ISSUE'
 export const MOVE_TO_NEXT_CONTACT = 'MOVE_TO_NEXT_CONTACT'
+export const SET_ASKINGLOCATION = 'SET_ASKINGLOCATION'
 
 // Development functionality
 export const SET_DEBUG = 'SET_DEBUG'
