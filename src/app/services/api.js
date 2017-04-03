@@ -4,7 +4,7 @@ import { setRemoteData, setReportData } from '../redux/actions/index'
 const issueUrl = 'https://5calls.org/issues/?address='
 const reportUrl = 'https://5calls.org/report'
 
-export const getIssueData = (store, address) => {
+export const getIssueData = (dispatch, address) => {
     axios.get(issueUrl + address).then((response) => {
         const remoteData = {
             issues: response.data.issues,
@@ -14,16 +14,16 @@ export const getIssueData = (store, address) => {
             splitDistrict: response.data.splitDistrict,
             invalidAddress: response.data.invalidAddress
         }
-        store.dispatch(setRemoteData(remoteData));
+        dispatch(setRemoteData(remoteData));
     });
 }
 
-export const getReportData = (store) => {
+export const getReportData = (dispatch) => {
     axios.get(reportUrl).then((response) => {
         const reportData = {
             totalCalls: response.data.count
         }
-        store.dispatch(setReportData(reportData));
+        dispatch(setReportData(reportData));
     });
 }
 

@@ -24,8 +24,8 @@ let address = ''
 if (store.getState().locationInfo){
   address = store.getState().locationInfo.cachedAddress;
 }
-getIssueData(store, address);
-getReportData(store);
+getIssueData(store.dispatch, address);
+getReportData(store.dispatch);
 
 render(
   <Provider store={store}>

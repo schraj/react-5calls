@@ -13,7 +13,7 @@ class Contact extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // on a re-render, close the field offices widget
+    // on a re-render of this component(any click away to another issue or page), close the field offices widget
     this.setState({showFieldOfficeNumbers:false});
   }
 

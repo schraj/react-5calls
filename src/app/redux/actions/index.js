@@ -11,7 +11,7 @@ import {
   MOVE_TO_NEXT_CONTACT,
 } from './actionTypes'
 import localStorage from '../../services/localstorage'
-import { postReportData } from '../../services/api'
+import { getIssueData, postReportData } from '../../services/api'
 
 export const setRemoteData = (remoteData) => ({
   type: SET_REMOTE_DATA,
@@ -37,6 +37,10 @@ export const setLocation = (location) => {
     return (dispatch, getState) => {     
       localStorage.remove('org.5calls.location', () =>{})
       localStorage.add('org.5calls.location', location, () =>{})
+
+      // get new issue data for this new location  
+      getIssueData(dispatch, location);
+
       dispatch(setLocationAction(location));
     };  
 }
