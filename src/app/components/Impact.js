@@ -24,7 +24,7 @@ class Impact extends React.Component {
 
 Impact.propTypes = {
   userStats: PropTypes.any.isRequired,
-  totalCalls: PropTypes.number.isRequired,
+  totalCalls: PropTypes.string
 }
 
 export default Impact

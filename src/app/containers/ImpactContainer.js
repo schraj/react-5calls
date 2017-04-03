@@ -4,7 +4,7 @@ import Impact from '../components/Impact'
 
 const mapStateToProps = (state) => ({
   userStats: state.userStats,
-  totalCalls: state.remoteData.totalCalls  
+  totalCalls: state.reportData.totalCalls  
 })
 
 const mapDispatchToProps =  ({
