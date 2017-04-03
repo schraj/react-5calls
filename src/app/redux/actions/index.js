@@ -83,22 +83,27 @@ export const moveToNextContact = () => ({
 export const submitOutcome = (outcomeType, paramsObject) => {
     return (dispatch, getState) => {
       // TODO: this currently doesn't actually post
-      paramsObject.via = window.location.host === '5calls.org' ? 'web' : 'test';
-      postReportData(outcomeType, paramsObject);  
 
       let state = getState();
 
-      // set user userStats
-      let stats = state.userStats;
-      stats['all'].push({
-        contactid: paramsObject.contactid,
-        issueid: paramsObject.issueid,
-        result: paramsObject.result,
-        time: new Date().valueOf()
-      });
-      stats[outcomeType] += 1;
-      localStorage.replace("org.5calls.userStats", 0, stats, () => {});
+      // NOTE: we don't record the "skipped" outcome type 
+      if (outcomeType === 'callComplete') {
+        paramsObject.via = window.location.host === '5calls.org' ? 'web' : 'test';
+        postReportData(outcomeType, paramsObject);  
 
+        // set user userStats
+        let stats = state.userStats;
+        stats['all'].push({
+          contactid: paramsObject.contactid,
+          issueid: paramsObject.issueid,
+          result: paramsObject.result,
+          time: new Date().valueOf()
+        });
+        stats[paramsObject.result] += 1;
+        localStorage.replace("org.5calls.userStats", 0, stats, () => {});
+      }
+
+      // get the contact index for the current issue and contact they are submitting an outcome for 
       let currentIssue = state.remoteData.issues.find((i) => { return i.id === state.callState.currentIssueId });
       let contactIndex = 0;
       if (state.callState.contactIndices[currentIssue.id]){
