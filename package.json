@@ -58,6 +58,7 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "axios": "^0.16.0",
     "immutable": "^3.8.1",
     "invariant": "^2.1.0",
     "loglevel": "^1.4.1",
