@@ -1,8 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Route } from 'react-router';
-import configureStore from './app/redux/stores/configureStore'
-import initializeStore from './app/redux/stores/initializeStore'
+import configureStore from './app/redux/store/configureStore'
+import initializeStore from './app/redux/store/initializeStore'
 import { Provider } from 'react-redux';
 import { ConnectedRouter } from 'react-router-redux'
 import MainPage from './app/pages/MainPage';

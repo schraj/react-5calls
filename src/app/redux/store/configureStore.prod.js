@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import { routerMiddleware } from 'react-router-redux'
-import {root} from './root'
+import {root} from '../reducers/root'
 import thunk from 'redux-thunk'
 
 const configureStore = (history) => {
