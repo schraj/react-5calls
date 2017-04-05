@@ -17,13 +17,13 @@ class IssuesLocation extends React.Component {
     } else if (this.props.locationProcessing.askingLocation) {
       return "";
     } else if (this.props.invalidAddress) {
-      return <p><button className="subtle-button" onClick={this.props.onEnterLocation}>That address is invalid, please try again</button></p>;
+      return <p><button id="btnInvalidAddress" className="subtle-button" onClick={this.props.onEnterLocation}>That address is invalid, please try again</button></p>;
     } else if (this.props.locationInfo.cachedAddress) {
-      return <p>for <button className="subtle-button" onClick={this.props.onEnterLocation}>{this.props.locationInfo.cachedAddress}</button></p>;
+      return <p>for <button id="btnAddress" className="subtle-button" onClick={this.props.onEnterLocation}>{this.props.locationInfo.cachedAddress}</button></p>;
     } else if (this.props.locationInfo.cachedCity) {
-      return <p>for <button className="subtle-button" onClick={this.props.onEnterLocation}> {this.props.locationInfo.cachedCity}</button> {this.debugText()}</p>;
+      return <p>for <button id="btnCity" className="subtle-button" onClick={this.props.onEnterLocation}> {this.props.locationInfo.cachedCity}</button> {this.debugText()}</p>;
     } else {
-      return <p><button className="subtle-button" onClick={this.props.onEnterLocation}>Choose a location</button></p>;
+      return <p><button id="btnChooseALocation" className="subtle-button" onClick={this.props.onEnterLocation}>Choose a location</button></p>;
     }
   }
 
@@ -33,7 +33,7 @@ class IssuesLocation extends React.Component {
               <input type="text" autoFocus="true" id="address" name="address" placeholder="Enter an address or zip code"
                       ref={node => { this.input = node }} 
               /> 
-              <button type="submit">Go</button>
+              <button id="btnSubmitLocation" type="submit">Go</button>
             </form>;
   }
   
