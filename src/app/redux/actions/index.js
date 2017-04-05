@@ -1,5 +1,5 @@
 import { push } from 'react-router-redux'
-import * as types from './types'
+import * as types from '../constants/types'
 import localStorage from '../../services/localstorage'
 import { postReportData } from '../../services/api'
 import { resetIssues, resetLocation, setIsDebug } from './debugActions'

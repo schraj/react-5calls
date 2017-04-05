@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import { routerReducer } from 'react-router-redux'
 
-import * as types from '../actions/types'
+import * as types from '../constants/types'
 import { callState } from './callState'
 
 export const remoteData = (state = {}, action) => {

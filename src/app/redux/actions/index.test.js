@@ -6,7 +6,7 @@ const middlewares = [ thunk ]
 const mockStore = configureMockStore(middlewares)
 
 import * as actions from './index'
-import * as types from './types'
+import * as types from '../constants/types'
 
 describe('actions', () => {
   it('should create action to set isdebug flag', () => {

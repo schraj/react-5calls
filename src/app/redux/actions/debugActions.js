@@ -1,5 +1,5 @@
 // Development functionality
-import * as types from './types'
+import * as types from '../constants/types'
 import localStorage from '../../services/localstorage'
 
 export const setIsDebug = (isDebug) => ({

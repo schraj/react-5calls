@@ -1,4 +1,4 @@
-import * as types from './types'
+import * as types from '../constants/types'
 import * as api from '../../services/api'
 
 export const fetchIssuesRequest = () => ({
