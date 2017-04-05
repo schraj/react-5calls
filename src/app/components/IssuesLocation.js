@@ -1,10 +1,22 @@
 import React, { PropTypes } from 'react'
 
 class IssuesLocation extends React.Component {
-  submitAddress = (e) => {
+ constructor(props) {
+    super(props);
+    this.state = {address: ''};
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+  
+  handleChange(e) {
+    this.setState({address: e.target.value});
+  }
+  
+  handleSubmit = (e) => {
     e.preventDefault();
-    const address = this.input.value;
-    this.props.setLocation(address);
+    console.log('hit handleSubmit')
+    this.props.setLocation(this.state.address);
   }
 
   debugText = () => {
@@ -29,9 +41,15 @@ class IssuesLocation extends React.Component {
 
   addressForm(state) {
     const className = (this.props.locationProcessing.askingLocation && !this.props.locationProcessing.fetchingLocation) ? '' : 'hidden';
-    return <form onSubmit={this.submitAddress.bind(this)} className={className}>
-              <input type="text" autoFocus="true" id="address" name="address" placeholder="Enter an address or zip code"
-                      ref={node => { this.input = node }} 
+    return <form onSubmit={this.handleSubmit} className={className}>
+              <input 
+                type="text" 
+                autoFocus="true" 
+                id="address" 
+                name="address" 
+                placeholder="Enter an address or zip code"
+                value={this.state.address}
+                onChange={this.handleChange}
               /> 
               <button id="btnSubmitLocation" type="submit">Go</button>
             </form>;
@@ -42,6 +60,7 @@ class IssuesLocation extends React.Component {
       <div className="issues__location">
         {this.pretext()}
         {this.addressForm()}
+        <input id="test" type="text"/>
       </div>
     )
   }

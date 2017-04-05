@@ -1,9 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import IssueLocation from './IssuesLocation'
 
-function setup(props) {
-  const defaultProps = {
+function setup(overrides) {
+  let defaultProps = {
     callState: {},
     locationInfo: {},
     invalidAddress: false,
@@ -14,10 +14,10 @@ function setup(props) {
     onEnterLocation: jest.fn()
   }
 
+  const props = Object.assign({}, defaultProps, overrides);
 
-  const merged = Object.assign(defaultProps, props);
-
-  const enzymeWrapper = shallow(<IssueLocation {...merged} />)
+  // const enzymeWrapper = shallow(<IssueLocation {...props} />)  
+   const enzymeWrapper = mount(<IssueLocation {...props} />)
 
   return {
     props,
@@ -46,27 +46,51 @@ describe('components', () => {
         }
       }
       const { enzymeWrapper, props } = setup(propOverrides)
-      const hiddenSubmitButton = enzymeWrapper.find('button.hidden')
-      expect(hiddenSubmitButton.length).toBe(0);      
+      const frmSubmitLocation = enzymeWrapper.find('form')
+      expect(frmSubmitLocation.hasClass('hidden')).toBe(false);      
 
       const submitButton = enzymeWrapper.find('button#btnSubmitLocation')
       expect(submitButton.length).toBe(1);      
       expect(submitButton.text()).toBe("Go");            
     })
 
-    it('should show the submit address button when askingLocation is true', () => {
+    it('should call onEnterLocation when a choose-location related button is clicked', () => {
+      const { enzymeWrapper, props } = setup({invalidAddress: true})
+      const addressButton = enzymeWrapper.find('button#btnInvalidAddress')
+      expect(props.onEnterLocation.mock.calls.length).toBe(0);
+      addressButton.simulate('click');
+      expect(props.onEnterLocation.mock.calls.length).toBe(1);
+    })
+
+    it('should add value to component state when text box is updated', () => {
       var propOverrides = {
         locationProcessing: {
           askingLocation: true
         }
       }
       const { enzymeWrapper, props } = setup(propOverrides)
-      const hiddenSubmitButton = enzymeWrapper.find('button.hidden')
-      expect(hiddenSubmitButton.length).toBe(0);      
+
+      const newAddress = '98502';
+      const addressInput = enzymeWrapper.find('input#address')
+      addressInput.simulate('change', { target: { value: newAddress } })
+      expect(enzymeWrapper.instance().state.address).toBe(newAddress)
+    })
+
+    xit('should call setLocation when submit button is clicked', () => {
+      var propOverrides = {
+        locationProcessing: {
+          askingLocation: true
+        }
+      }
+      const { enzymeWrapper, props } = setup(propOverrides)
+      const addressInput = enzymeWrapper.find('input#address')
+      addressInput.simulate('change', { target: { value: '98502' } })
 
       const submitButton = enzymeWrapper.find('button#btnSubmitLocation')
-      expect(submitButton.length).toBe(1);      
-      expect(submitButton.text()).toBe("Go");            
+      expect(submitButton.length).toBe(1);  
+      expect(props.setLocation.mock.calls.length).toBe(0);
+      submitButton.simulate('click');
+      expect(props.setLocation.mock.calls.length).toBe(1);
     })
   })
 })
