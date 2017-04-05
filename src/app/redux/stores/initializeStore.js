@@ -1,11 +1,4 @@
-import {
-  setLocationInfo,
-  setRemoteData,
-  setUserStats,
-  setCallState,
-  setAskingLocation
-} from '../actions/index'
-import { setIsDebug } from '../actions/debug'
+import * as actions from '../actions/index'
 import { logger } from 'loglevel'
 import localStore from '../../services/localstorage'
 
@@ -102,7 +95,7 @@ const initializeStore = (store) => {
     splitDistrict: false,
     invalidAddress: false
   }
-  store.dispatch(setRemoteData(remoteData));
+  store.dispatch(actions.setRemoteData(remoteData));
 
   let cachedFetchingLocation = (cachedGeo === '') ? true : false;
   let cachedLocationFetchType = (cachedAllowBrowserGeo) ? 'browserGeolocation' : 'ipAddress';
@@ -120,20 +113,20 @@ const initializeStore = (store) => {
     cachedLocationFetchType: cachedLocationFetchType
   }
 
-  store.dispatch(setLocationInfo(locationInfo));
+  store.dispatch(actions.setLocationInfo(locationInfo));
 
-  store.dispatch(setUserStats(localStats));
+  store.dispatch(actions.setUserStats(localStats));
 
   const callState = {
     currentIssueId: null,
     contactIndices: {},
     completedIssues: completedIssues
   }
-  store.dispatch(setCallState(callState));
+  store.dispatch(actions.setCallState(callState));
 
-  store.dispatch(setAskingLocation(false));
+  store.dispatch(actions.setAskingLocation(false));
 
-  store.dispatch(setIsDebug(isDebug));
+  store.dispatch(actions.setIsDebug(isDebug));
 }
 
 export default initializeStore

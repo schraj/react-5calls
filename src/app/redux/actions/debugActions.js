@@ -1,22 +1,18 @@
 // Development functionality
-import {
-  SET_DEBUG,
-  RESET_ISSUES,
-  RESET_LOCATION
-} from './actionTypes'
+import * as types from './types'
 import localStorage from '../../services/localstorage'
 
 export const setIsDebug = (isDebug) => ({
-  type: SET_DEBUG,
+  type: types.SET_DEBUG,
   isDebug: isDebug
 })
 
 export const resetIssuesAction = () => ({
-  type: RESET_ISSUES
+  type: types.RESET_ISSUES
 })
 
 export const resetLocationAction = () => ({
-  type: RESET_LOCATION
+  type: types.RESET_LOCATION
 })
 
 export const resetIssues = () => {

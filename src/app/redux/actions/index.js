@@ -1,41 +1,33 @@
 import { push } from 'react-router-redux'
-import {
-  SET_REMOTE_DATA,
-  SET_REPORT_DATA,
-  SET_LOCATION_INFO,
-  SET_LOCATION,
-  SET_USERSTATS,
-  SET_CALLSTATE,
-  SELECT_ISSUE,
-  COMPLETE_ISSUE,
-  MOVE_TO_NEXT_CONTACT,
-  SET_ASKINGLOCATION
-} from './actionTypes'
+import * as types from './types'
 import localStorage from '../../services/localstorage'
 import { getIssueData, postReportData } from '../../services/api'
+import { resetIssues, resetLocation, setIsDebug } from './debugActions'
+
+export { resetIssues, resetLocation, setIsDebug };
 
 export const setRemoteData = (remoteData) => ({
-  type: SET_REMOTE_DATA,
+  type: types.SET_REMOTE_DATA,
   remoteData: remoteData
 })
 
 export const setReportData = (reportData) => ({
-  type: SET_REPORT_DATA,
+  type: types.SET_REPORT_DATA,
   reportData: reportData
 })
 
 export const setLocationInfo = (locationInfo) => ({
-  type: SET_LOCATION_INFO,
+  type: types.SET_LOCATION_INFO,
   locationInfo: locationInfo
 })
 
 export const setAskingLocation = (askingLocation) => ({
-  type: SET_ASKINGLOCATION,
+  type: types.SET_ASKINGLOCATION,
   askingLocation: askingLocation
 })
 
 export const setLocationAction = (location) => ({
-  type: SET_LOCATION,
+  type: types.SET_LOCATION,
   location: location
 })
 
@@ -56,27 +48,27 @@ export const setLocation = (location) => {
 }
 
 export const setUserStats = (userStats) => ({
-  type: SET_USERSTATS,
+  type: types.SET_USERSTATS,
   userStats: userStats
 })
 
 export const setCallState = (callState) => ({
-  type: SET_CALLSTATE,
+  type: types.SET_CALLSTATE,
   callState: callState
 })
 
 export const selectIssue = (id) => ({
-  type: SELECT_ISSUE,
+  type: types.SELECT_ISSUE,
   id: id
 })
 
 export const completeIssue = (id) => ({
-  type: COMPLETE_ISSUE,
+  type: types.COMPLETE_ISSUE,
   id: id
 })
 
 export const moveToNextContact = () => ({
-  type: MOVE_TO_NEXT_CONTACT,
+  type: types.MOVE_TO_NEXT_CONTACT,
 })
 
 // thunk action creator
