@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 class IssuesLocation extends React.Component {
   submitAddress = (e) => {
     e.preventDefault();
-    const address = e.currentTarget[0].value;
+    const address = this.input.value;
     this.props.setLocation(address);
   }
 
@@ -29,7 +29,12 @@ class IssuesLocation extends React.Component {
 
   addressForm(state) {
     const className = (this.props.locationProcessing.askingLocation && !this.props.locationProcessing.fetchingLocation) ? '' : 'hidden';
-    return <form onSubmit={this.submitAddress} className={className}><input type="text" autoFocus="true" id="address" name="address" placeholder="Enter an address or zip code" /> <button>Go</button></form>;
+    return <form onSubmit={this.submitAddress.bind(this)} className={className}>
+              <input type="text" autoFocus="true" id="address" name="address" placeholder="Enter an address or zip code"
+                      ref={node => { this.input = node }} 
+              /> 
+              <button type="submit">Go</button>
+            </form>;
   }
   
   render() {
