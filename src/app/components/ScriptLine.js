@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react'
+import uuid from 'uuid'
 
-// const getKey = (line) => {
-//   return line.replace(/\s/g,'');
-// }
 
 const ScriptLine = (line) => (
-  	<p>{line}</p>
+  	<p key={uuid()}>{line}</p>
 )
 
 ScriptLine.propTypes = {

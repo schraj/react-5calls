@@ -127,7 +127,7 @@ class Call extends React.Component {
 Call.propTypes = {
   issues: PropTypes.any.isRequired,
   callState: PropTypes.any.isRequired,
-  splitDistrict: PropTypes.string.isRequired,
+  splitDistrict: PropTypes.bool.isRequired,
   locationInfo: PropTypes.any.isRequired,
   onEnterLocation: PropTypes.func.isRequired,
   onSubmitOutcome: PropTypes.func.isRequired
