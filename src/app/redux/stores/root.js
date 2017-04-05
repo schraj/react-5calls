@@ -90,7 +90,7 @@ export const locationProcessing = (state = {}, action) => {
 
 export const isDebug = (state = false, action) => {
   switch (action.type) {
-    case types.SET_DEBUG:
+    case types.SET_ISDEBUG:
       return action.isDebug
     default:
       return state

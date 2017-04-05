@@ -1,30 +1,14 @@
 import axios from 'axios'
-import { setRemoteData, setReportData } from '../redux/actions/index'
 
 const issueUrl = 'https://5calls.org/issues/?address='
 const reportUrl = 'https://5calls.org/report'
 
-export const getIssueData = (dispatch, address) => {
-    axios.get(issueUrl + address).then((response) => {        
-        const remoteData = {
-            issues: response.data.issues,
-            activeIssues: response.data.issues.filter((i) => !i.inactive),
-            inactiveIssues: response.data.issues.filter((i) => i.inactive),
-            totalCalls: 0,
-            splitDistrict: response.data.splitDistrict,
-            invalidAddress: response.data.invalidAddress
-        }
-        dispatch(setRemoteData(remoteData));
-    });
+export const getIssueData = (address) => {
+    return axios.get(issueUrl + address);
 }
 
-export const getReportData = (dispatch) => {
-    axios.get(reportUrl).then((response) => {
-        const reportData = {
-            totalCalls: response.data.count
-        }
-        dispatch(setReportData(reportData));
-    });
+export const getReportData = () => {
+    return axios.get(reportUrl);
 }
 
 // NOT CURRENTLY IMPLEMENTED

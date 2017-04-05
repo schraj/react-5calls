@@ -1,20 +1,12 @@
 import { push } from 'react-router-redux'
 import * as types from './types'
 import localStorage from '../../services/localstorage'
-import { getIssueData, postReportData } from '../../services/api'
+import { postReportData } from '../../services/api'
 import { resetIssues, resetLocation, setIsDebug } from './debugActions'
+import { getIssueData, getReportData, setRemoteData, setReportData } from './apiActions'
 
 export { resetIssues, resetLocation, setIsDebug };
-
-export const setRemoteData = (remoteData) => ({
-  type: types.SET_REMOTE_DATA,
-  remoteData: remoteData
-})
-
-export const setReportData = (reportData) => ({
-  type: types.SET_REPORT_DATA,
-  reportData: reportData
-})
+export { getIssueData, getReportData, setRemoteData, setReportData };
 
 export const setLocationInfo = (locationInfo) => ({
   type: types.SET_LOCATION_INFO,
@@ -37,7 +29,7 @@ export const setLocation = (location) => {
       localStorage.add('org.5calls.location', location, () =>{})
 
       // get new issue data for this new location  
-      getIssueData(dispatch, location);
+      dispatch(getIssueData(location));
 
       // enter the new location into the store
       dispatch(setLocationAction(location));

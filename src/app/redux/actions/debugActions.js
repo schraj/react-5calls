@@ -3,7 +3,7 @@ import * as types from './types'
 import localStorage from '../../services/localstorage'
 
 export const setIsDebug = (isDebug) => ({
-  type: types.SET_DEBUG,
+  type: types.SET_ISDEBUG,
   isDebug: isDebug
 })
 

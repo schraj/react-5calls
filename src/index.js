@@ -11,7 +11,7 @@ import DonePage from './app/pages/DonePage';
 import AboutPage from './app/pages/AboutPage';
 import ImpactPage from './app/pages/ImpactPage';
 import MorePage from './app/pages/MorePage';
-import {getIssueData, getReportData} from './app/services/api'
+import {getIssueData, getReportData} from './app/redux/actions/index'
 
 import createHistory from 'history/createBrowserHistory'
 
@@ -26,8 +26,10 @@ let address = ''
 if (store.getState().locationInfo){
   address = store.getState().locationInfo.cachedAddress;
 }
-getIssueData(store.dispatch, address);
-getReportData(store.dispatch);
+
+// initiate the calls to the back end to get the data
+store.dispatch(getIssueData(address));
+store.dispatch(getReportData());
 
 render(
   <Provider store={store}>

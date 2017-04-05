@@ -61,16 +61,6 @@ const initializeStore = (store) => {
     completedIssues = completed == null ? [] : completed;
   });
 
-  // let cachedUserLocale = '';
-  // localStore.getAll('org.5calls.userlocale', (userLocale) => {
-  //   if (userLocale.length > 0) {
-  //     logger.debug("user locale get", userLocale[0]);
-  //     cachedUserLocale = userLocale[0];
-  //   } else {
-  //     cachedUserLocale = userLocaleDetection(navigator.language || navigator.userLanguage);
-  //   }
-  // });
-
   // get stored user stats
   const defaultStats = {
     all: [],
@@ -124,6 +114,8 @@ const initializeStore = (store) => {
   }
   store.dispatch(actions.setCallState(callState));
 
+  // this needs to be in redux store rather than local state because multiple components will refer to it
+  // initially it appeared that it should be in local state.
   store.dispatch(actions.setAskingLocation(false));
 
   store.dispatch(actions.setIsDebug(isDebug));
