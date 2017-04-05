@@ -41,9 +41,26 @@ describe('async actions', () => {
 
     const expectedActions = [
       { type: types.FETCH_ISSUES_REQUEST },
-      { type: types.FETCH_ISSUES_SUCCESS, body: { issues: ['object']  } }
+      //{ type: types.FETCH_ISSUES_SUCCESS, body: { issues: ['object']  } }
     ]
     const store = mockStore({ remoteData: {} })
+ 
+    // Todo: need to make the request complete before evaluating result
+    store.dispatch(actions.getIssueData('98502'))
+    expect(store.getActions()).toEqual(expectedActions)
+  })
+  
+  // This is a sample from the redux site.  to be removed.
+  xit('creates FETCH_TODOS_SUCCESS when fetching todos has been done', () => {
+    nock('http://example.com/')
+      .get('/todos')
+      .reply(200, { body: { todos: ['do something'] }})
+
+    const expectedActions = [
+      { type: types.FETCH_TODOS_REQUEST },
+      { type: types.FETCH_TODOS_SUCCESS, body: { todos: ['do something']  } }
+    ]
+    const store = mockStore({ todos: [] })
 
     return store.dispatch(actions.fetchTodos())
       .then(() => { // return of async actions

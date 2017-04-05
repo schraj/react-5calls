@@ -73,3 +73,17 @@ export const getReportData = () => {
       });      
   };
 }
+
+export const fetchTodosRequest = () => ({
+  type: 'FETCH_todos_REQUEST',
+})
+
+export function fetchTodos() {
+  return dispatch => {
+    dispatch(fetchTodosRequest())
+    return fetch('http://example.com/todos')
+      .then(res => res.json())
+      .then(json => dispatch(fetchIssuesSuccess(json.body)))
+      .catch(ex => dispatch(fetchIssuesError(ex)))
+  }
+}

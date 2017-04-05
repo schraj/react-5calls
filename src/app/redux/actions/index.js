@@ -3,10 +3,10 @@ import * as types from './types'
 import localStorage from '../../services/localstorage'
 import { postReportData } from '../../services/api'
 import { resetIssues, resetLocation, setIsDebug } from './debugActions'
-import { getIssueData, getReportData, setRemoteData, setReportData } from './apiActions'
+import { getIssueData, getReportData, setRemoteData, setReportData, fetchTodos } from './apiActions'
 
 export { resetIssues, resetLocation, setIsDebug };
-export { getIssueData, getReportData, setRemoteData, setReportData };
+export { getIssueData, getReportData, setRemoteData, setReportData, fetchTodos };
 
 export const setLocationInfo = (locationInfo) => ({
   type: types.SET_LOCATION_INFO,
