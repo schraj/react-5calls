@@ -52,7 +52,7 @@ describe('callState reducer', () => {
     expect(result.currentIssueId).toEqual(id)
   })
 
-  it('should update issue id but leave other properties when SELECT_ISSUE is executed and issueId is already set', () => {
+  it('should update issue id but leave other properties untouched when SELECT_ISSUE is executed and issueId is already set', () => {
     const contactIndices = {'firstId': 1}; 
     const initialState = {
       currentIssueId: 'firstId',
@@ -67,5 +67,39 @@ describe('callState reducer', () => {
     })
     expect(result.currentIssueId).toEqual(id)
     expect(result.contactIndices).toEqual(contactIndices)
+  })
+
+  it('should add contactindex when MOVE_TO_NEXT_CONTACT is executed for the first time for an issueId', () => {
+    const contactIndices = {'otherId': 1}; 
+    const initialState = {
+      currentIssueId: 'testId',
+      contactIndices: contactIndices,
+      completedIssues: []
+    }
+
+    let id = 'testId';
+    const expectedContactIndices = {'otherId': 1, 'testId': 1}; 
+    const result = callState(initialState, {
+        type: types.MOVE_TO_NEXT_CONTACT,
+        id: id
+    })
+    expect(result.contactIndices).toEqual(expectedContactIndices)
+  })
+
+  it('should increment contactindex when MOVE_TO_NEXT_CONTACT is executed a subsequent time for an issueId', () => {
+    const contactIndices = {'otherId': 1, 'testId': 1}; 
+    const initialState = {
+      currentIssueId: 'testId',
+      contactIndices: contactIndices,
+      completedIssues: []
+    }
+
+    let id = 'testId';
+    const expectedContactIndices = {'otherId': 1, 'testId': 2}; 
+    const result = callState(initialState, {
+        type: types.MOVE_TO_NEXT_CONTACT,
+        id: id
+    })
+    expect(result.contactIndices).toEqual(expectedContactIndices)
   })
 })
