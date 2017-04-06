@@ -16,13 +16,25 @@ class IssuesLocation extends React.Component {
   
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log('hit handleSubmit')
     this.props.setLocation(this.state.address);
   }
+  
+  render() {
+    return (
+      <div className="issues__location">
+        {LocationChooser(
+          this.props.locationProcessing.fetchingLocation
+          , this.props.locationProcessing.askingLocation
+          , this.props.invalidAddress
+          , this.props.locationInfo.cachedAddress
+          , this.props.locationInfo.cachedCity
+          , this.props.isDebug
+          , this.props.onEnterLocation
+          , this.props.setLocation
+          )}
 
-  addressForm(state) {
-    const className = (this.props.locationProcessing.askingLocation && !this.props.locationProcessing.fetchingLocation) ? '' : 'hidden';
-    return <form onSubmit={this.handleSubmit} className={className}>
+          {this.props.locationProcessing.askingLocation && !this.props.locationProcessing.fetchingLocation && 
+            <form onSubmit={this.handleSubmit} >
               <input 
                 type="text" 
                 autoFocus="true" 
@@ -33,22 +45,8 @@ class IssuesLocation extends React.Component {
                 onChange={this.handleChange}
               /> 
               <button id="btnSubmitLocation" type="submit">Go</button>
-            </form>;
-  }
-  
-  render() {
-    return (
-      <div className="issues__location">
-        {LocationChooser(
-          this.props.locationProcessing.askingLocation
-          , this.props.locationProcessing.fetchingLocation
-          , this.props.invalidAddress
-          , this.props.locationInfo.cachedAddress
-          , this.props.locationInfo.cachedCity
-          , this.props.onEnterLocation
-          )}
-        {this.addressForm()}
-        <input id="test" type="text"/>
+            </form>
+          }
       </div>
     )
   }

@@ -8,8 +8,7 @@ const initializeStore = (store) => {
   const isDebug = (localStorage['org.5calls.debug'] === 'true');
 
   if (isDebug) {
-    // we don't need loglevel's built-in persistence; we do it ourselves above ^
-    logger.setLevel(logger.levels.TRACE, false);
+    //logger.setLevel(logger.levels.TRACE, false);
   }
 
   // get the stored zip location

@@ -1,11 +1,8 @@
 import React, { PropTypes } from 'react'
 import LocationButton from './LocationButton'
+import DebugButton from './DebugButton'
 
-const debugText = () => {
-    return this.props.isDebug ? <button onClick={this.props.resetLocation}>reset</button> : "";
-}
-
-const getChooserWidget = (fetchingLocation, askingLocation, invalidAddress, cachedAddress, cachedCity, onEnterLocation) => {
+const getChooserWidget = (fetchingLocation, askingLocation, invalidAddress, cachedAddress, cachedCity, isDebug, onEnterLocation, resetLocation) => {
     if (fetchingLocation) {
       return <p className="loadingAnimation">Getting your location</p>
     } else if (askingLocation) {
@@ -15,15 +12,15 @@ const getChooserWidget = (fetchingLocation, askingLocation, invalidAddress, cach
     } else if (cachedAddress) {
       return <p>for {LocationButton(cachedAddress,onEnterLocation)}</p>
     } else if (cachedCity) {
-      return <p>for {LocationButton(cachedCity,onEnterLocation)} {this.debugText()}</p>
+      return <p>for {LocationButton(cachedCity,onEnterLocation)} {DebugButton(isDebug, resetLocation)}</p>
     } else {
       return <p>{LocationButton("Choose a location",onEnterLocation)}</p>
     }
 }
 
-const LocationChooser = (fetchingLocation, askingLocation, invalidAddress, cachedAddress, cachedCity, onEnterLocation) => (
+const LocationChooser = (fetchingLocation, askingLocation, invalidAddress, cachedAddress, cachedCity, isDebug, onEnterLocation, resetLocation) => (
     <div>
-    { getChooserWidget(fetchingLocation, askingLocation, invalidAddress, cachedAddress, cachedCity, onEnterLocation) }
+        { getChooserWidget(fetchingLocation, askingLocation, invalidAddress, cachedAddress, cachedCity, isDebug, onEnterLocation, resetLocation) }
     </div>
 )
 
@@ -33,7 +30,9 @@ LocationChooser.propTypes = {
     invalidAddress: PropTypes.bool.isRequired,
     cachedAddress: PropTypes.string.isRequired,
     cachedCity: PropTypes.string.isRequired,
-    onEnterLocation: PropTypes.func.isRequired
+    isDebug: PropTypes.bool.isRequired,    
+    onEnterLocation: PropTypes.func.isRequired,
+    resetLocation: PropTypes.func.isRequired
 }
 
 export default LocationChooser
