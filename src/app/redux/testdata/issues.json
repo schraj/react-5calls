@@ -1,0 +1,662 @@
+{  
+   "splitDistrict":false,
+   "invalidAddress":false,
+   "normalizedLocation":"Olympia",
+   "issues":[  
+      {  
+         "id":"recNGBGmFPargzipE",
+         "name":"Protect Filibuster From “Nuclear Option” Rule Change",
+         "reason":"On April 4, the Senate began the final floor debate regarding the confirmation of Neil Gorsuch to the vacant seat on the Supreme Court. Due to calls and pressure from constituents, as of end of the day Tuesday, 44 senators both oppose confirmation and oppose invoking \"cloture\" (the procedure for ending a debate and taking a vote). As the Senate rules currently stand, without 60 votes to invoke cloture, the vote to confirm Gorsuch could be delayed indefinitely.\n\nIt is expected that as these 44 senators take part in a filibuster, Senate Majority Leader Mitch McConnell will enter a point of order and ask for a Senate rule change to allow cloture to be invoked for Supreme Court confirmations with a simple majority. This would then end the filibuster and move the nomination forward to an up and down vote, all but assuring that Neil Gorsuch is confirmed.",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP]. \n\nI'm calling in opposition to changing the rules of the Senate to reduce the number of votes needed to break a filibuster for a Supreme Court nomination. I am asking the Senator to Vote NO on a rule change, and NO on invoking cloture.\n\nThank you for your hard work answering the phones. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-MariaCantwell",
+               "name":"Maria Cantwell",
+               "phone":"202-224-3441",
+               "photoURL":"https://5calls.org/photo/WA-MariaCantwell",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-303-0114",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"509-946-8106",
+                     "city":"Richland"
+                  },
+                  {  
+                     "phone":"206-220-6400",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-353-2507",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-2281",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7838",
+                     "city":"Vancouver"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-PattyMurray",
+               "name":"Patty Murray",
+               "phone":"202-224-2621",
+               "photoURL":"https://5calls.org/photo/WA-PattyMurray",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-259-6515",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"206-553-5545",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-624-9515",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-3636",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7797",
+                     "city":"Vancouver"
+                  },
+                  {  
+                     "phone":"509-453-7462",
+                     "city":"Yakima"
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recGOHilRqYoKhdPM",
+         "name":"Stop the Return of Trumpcare",
+         "reason":"Just ten days after of the demise of Trumpcare (AHCA), the New York Times reported that Trump has started negotiations with the hard-line House Freedom Caucus to develop a new Affordable Care Act replacement bill. While the House Freedom Caucus's stubbornness helped kill Trumpcare, their extremist input would make the updated bill even worse than the widely-disliked original. The Freedom Caucus has proposed letting states opt out of two popular ACA policies: the requirement that all insurance plans cover essential health benefits, and the community rating provision, which requires insurers to charge everyone who is the same age the same price. These two changes would functionally remove protections for people with preexisting conditions by allowing insurers to charge sicker people astronomically higher premium rates. The provision would also significantly reduce the coverage offered in many insurance plans by allowing insurers to offer skimpy plans that omit coverage for things like hospital care, prescription drugs, and maternity care. According to a recent report by the nonpartisan Kaiser Family Foundation, 75% of Americans prefer Congress work to improve the ACA instead of pursuing a replacement. Demand your representatives work to shore up the ACA instead of pulling the rug out from under sick people. ",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP]. \n\nI'm calling to object to any future bills aimed at repealing and replacing the Affordable Care Act, especially bills that remove preexisting conditions or the requirement for coverage of essential health benefits. It's been made clear that the majority of Americans want Congress to focus on making the current law work instead.\n\nThank you for your hard work answering the phones.\n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-DennyHeck",
+               "name":"Denny Heck",
+               "phone":"202-225-9740",
+               "photoURL":"https://5calls.org/photo/WA-DennyHeck",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is your local representative in the House",
+               "area":"House",
+               "field_offices":[  
+                  {  
+                     "phone":"360-459-8514",
+                     "city":""
+                  },
+                  {  
+                     "phone":"253-208-6172",
+                     "city":""
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"rec7C57ynOxDtIIDe",
+         "name":"Supreme Court Nominee Gorsuch is Pro-Corporation, Anti-Labor",
+         "reason":"Neil Gorsuch has proven himself repeatedly to be anti-labor and pro-corporate interests. He has close ties to, and support from, the Federalist Society and Heritage Action for America, both Koch-funded, pro-corporate, deeply conservative organizations. Further, Gorsuch's record shows a strong tendency to fight for businesses over individuals. His appelate court record shows him siding with insurance companies seeking to deny disability benefits, with employers wanting to cut pension benefits, and with employers defending against payment of employment discrimination claims.  \n\nMost telling are the cases where he dissented from even his conservative colleagues on the Tenth Circuit. Some examples:\n* In TransAm Trucking, Inc. v. Administrative Rev. Bd., Gorsuch dissented in favor of a trucking company when they fired an employee for refusing to drive his truck with frozen brakes in subzero temperatures.\n* In Compass Environmental, Inc. v. Occupational Safety \u0026 Health Review Commission, Gorsuch dissented from a decision against a company that failed to properly train a worker, resulting in his death by electrocution.\n* In Salmon v. Astrue, Gorsuch dissented against the majority ruling that a hearing examiner had disregarded evidence supporting a claim for disability benefits. \n* In WWC Holding Co. v. Sopkin, Gorsuch argued that a wireless service carrier should be able to avoid the Colorado Public Utilities Commission’s efforts to enact state-specific consumer protection standards for wireless phone service. \n\nMeasured against his own colleagues on the Tenth Circuit, including Republican appointees, Gorsuch is consistently beholden to corporate interests, and should not be elevated to the Supreme Court.",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP]. \n\nI'm calling to demand a “no” vote on Neil Gorsuch. His pro-corporate stance is not in the best interests of the majority of Americans. \n\nThank you for your hard work answering the phones. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-MariaCantwell",
+               "name":"Maria Cantwell",
+               "phone":"202-224-3441",
+               "photoURL":"https://5calls.org/photo/WA-MariaCantwell",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-303-0114",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"509-946-8106",
+                     "city":"Richland"
+                  },
+                  {  
+                     "phone":"206-220-6400",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-353-2507",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-2281",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7838",
+                     "city":"Vancouver"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-PattyMurray",
+               "name":"Patty Murray",
+               "phone":"202-224-2621",
+               "photoURL":"https://5calls.org/photo/WA-PattyMurray",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-259-6515",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"206-553-5545",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-624-9515",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-3636",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7797",
+                     "city":"Vancouver"
+                  },
+                  {  
+                     "phone":"509-453-7462",
+                     "city":"Yakima"
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recPB9IJrGzaJH2L7",
+         "name":"Ban the Use of a Brain-Damaging Pesticide",
+         "reason":"Over a decade ago, the Environmental Protection Agency (EPA) banned the use of the powerful insecticide chlorpyrifos in residential settings, citing its potential to cause neurological damage and impede fetal development. In November of 2016, the EPA also recommended a permanent ban on its use in agricultural settings, after a lawsuit from major environmental groups. It was found that levels of chlorpyrifos residue on crops consistently exceeded safety limits, endangering farmworkers and the children who live and play near chlorpyrifos-treated fields.\n\nDespite his own agency's scientific findings, the new EPA Administrator Scott Pruitt has refused to continue the ban on chlorpyrifos in farms across the nation. Pruitt's decision was lauded by Dow Chemical, who sells the insecticide. However, environmental and farmworker advocacy groups have argued this decision puts the health and safety of hundreds of farmworkers and children at risk. \n\nScott Pruitt must not be allowed to disregard his own agency's findings and privilege the financial interests of Dow Chemical over human beings' health and safety. ",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP].   \n\nI'm calling to urge Scott Pruitt to ban the use of chlorpyrifos (klor-peer-a-foss) in farming, a recommendation made by the EPA's own scientific experts. The continued use of this pesticide endangers the health and safety of families nationwide. \n\nThank you for your hard work answering the phones. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"recln69Wai7vsZTml",
+               "name":"Scott Pruitt",
+               "phone":"202-564-4700",
+               "photoURL":"https://5calls.org/photo/at-recln69Wai7vsZTml",
+               "party":"",
+               "state":"",
+               "reason":"Scott Pruitt is the 14th Administrator of the Environmental Protection Agency",
+               "area":"",
+               "field_offices":null
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recQ9s21FCCTmVxfB",
+         "name":"Protect Heating Assistance for Low-Income Families",
+         "reason":"The proposed Trump budget would completely eliminate funding for the $3.3 billion Low-Income Home Energy Assistance Program (LIHEAP). LIHEAP is a critical safety net program that provides emergency cash assistance to low-income families to help keep the heating or cooling on during the winter, the summer, and extreme weather conditions. If LIHEAP is eliminated, 6.1 million low-income households would lose access to financial assistance for heat and utilities. According to the most recent survey by the National Energy Assistance Director's Association, 89% of LIHEAP beneficiaries are households that include a senior, child, or a disabled person, and 20% of beneficiaries are veterans and their families. On average, families receive $458 in cash assistance for utilities from this program.\n\nFunding for LIHEAP is already insufficient. The money regularly runs out mid-winter, leaving millions of families to choose between living in freezing conditions and putting food on the table. While it is illegal for a utility company to completely shut off the heat during winter in many states, without LIHEAP, millions of families would be forced to ration meager heat, and would live in conditions that would devastate both short and long term health. \nLIHEAP is one of the programs that most directly benefit low-income Americans, and is a lifeline for millions of seniors, people with disabilities, and low-income working families. Eliminating this program and destroying an essential piece of our social safety net would be an assault on the health of the most vulnerable in our country.",
+         "script":"Hi, my name is [NAME] and I'm from [CITY, ZIP].\n\nI'm calling to express my strong opposition to Trump’s proposed budget cuts to critical support services, including LIHEAP, which supports over 6 million Americans with heating assistance. I oppose any budget proposal that disproportionately harms seniors, low-income families, and other vulnerable Americans.\n\n[Optional: include a brief story about someone you know who has been or will be affected by cuts to social support programs.]\n\nThank you for your time and attention.\n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied]",
+         "contacts":[  
+            {  
+               "id":"WA-MariaCantwell",
+               "name":"Maria Cantwell",
+               "phone":"202-224-3441",
+               "photoURL":"https://5calls.org/photo/WA-MariaCantwell",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-303-0114",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"509-946-8106",
+                     "city":"Richland"
+                  },
+                  {  
+                     "phone":"206-220-6400",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-353-2507",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-2281",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7838",
+                     "city":"Vancouver"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-PattyMurray",
+               "name":"Patty Murray",
+               "phone":"202-224-2621",
+               "photoURL":"https://5calls.org/photo/WA-PattyMurray",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-259-6515",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"206-553-5545",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-624-9515",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-3636",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7797",
+                     "city":"Vancouver"
+                  },
+                  {  
+                     "phone":"509-453-7462",
+                     "city":"Yakima"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-DennyHeck",
+               "name":"Denny Heck",
+               "phone":"202-225-9740",
+               "photoURL":"https://5calls.org/photo/WA-DennyHeck",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is your local representative in the House",
+               "area":"House",
+               "field_offices":[  
+                  {  
+                     "phone":"360-459-8514",
+                     "city":""
+                  },
+                  {  
+                     "phone":"253-208-6172",
+                     "city":""
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"reccIeP7zp3DB87f8",
+         "name":"Keep the National Institute of Health Funded",
+         "reason":"Trump’s \"Skinny Budget\" for Fiscal Year 2018 suggests cutting funding to the National Institute of Health (NIH) by $5.8 billion (18%) under the guise of cutting waste. More recently, Trump recommended cutting the NIH's budget by $1.2 billion for the remainder of this fiscal year, which would cut science programs as well as threaten funding to the Teen Pregnancy Prevention Program, the National Science Foundation, and the Environmental Protection Agency. The NIH has an annual budget of about $32.3 billion and is tasked with finding cures for diseases and advancing technology. 10% of the NIH's funding is spent on administrative costs, 10% on its own research, and the remaining 80% is distributed in the form of competitive grants to over 300,000 scientists and researchers at more than 2500 universities, medical schools, and other institutions in every state and around the world. These grants also support 400,000 jobs. As a result of these contributions, Congress voted with bipartisan support this past December to pass the 21st Century Cures Act, which gave the NIH an additional $4.8 billion over the next five years. Trump's budget proposal thus ignores not only NIH's many contributions to society but also Congress's bipartisan support for the organization's work.",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP]. \n\nI'm calling to express my support of the National Institute of Health (the NIH) and to request that you help this important agency keep its funding so that it can continue sponsoring cutting-edge medical research. I oppose Trump's proposed budget cuts to the NIH for both the remainder of this fiscal year and in future years.\n\nThank you for your hard work answering the phones. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-DennyHeck",
+               "name":"Denny Heck",
+               "phone":"202-225-9740",
+               "photoURL":"https://5calls.org/photo/WA-DennyHeck",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is your local representative in the House",
+               "area":"House",
+               "field_offices":[  
+                  {  
+                     "phone":"360-459-8514",
+                     "city":""
+                  },
+                  {  
+                     "phone":"253-208-6172",
+                     "city":""
+                  }
+               ]
+            },
+            {  
+               "id":"WA-MariaCantwell",
+               "name":"Maria Cantwell",
+               "phone":"202-224-3441",
+               "photoURL":"https://5calls.org/photo/WA-MariaCantwell",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-303-0114",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"509-946-8106",
+                     "city":"Richland"
+                  },
+                  {  
+                     "phone":"206-220-6400",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-353-2507",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-2281",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7838",
+                     "city":"Vancouver"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-PattyMurray",
+               "name":"Patty Murray",
+               "phone":"202-224-2621",
+               "photoURL":"https://5calls.org/photo/WA-PattyMurray",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-259-6515",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"206-553-5545",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-624-9515",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-3636",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7797",
+                     "city":"Vancouver"
+                  },
+                  {  
+                     "phone":"509-453-7462",
+                     "city":"Yakima"
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recEgDdW66VRb2htD",
+         "name":"Demand an Independent Commission to Investigate Trump-Russia Ties",
+         "reason":"During the House Intelligence Committee's March 20th public hearing on the Trump-Russia connections, FBI Director Comey and NSA Director Mike Rogers confirmed under oath that a classified investigation into connections between Russia and the Trump campaign began in late July 2016. This adds confidence to the mounting evidence that has come to light in recent months, including communications between the Russians and Jeff Sessions, Mike Flynn, Paul Manafort, Carter Page, Roger Stone, and Jared Kushner.\n\nSince then, however, Committee Chair Devin Nunes has shown blatant partisanship and inappropriate favoritism towards the White House. He held a press conference to discuss Trump's wire-tapping claims and other vague details pertaining to the Russia investigation, supposedly to help Trump with the bad media attention he had been receiving. He briefed the White House on new investigation information before sharing it with Rep. Adam Schiff, the ranking Democrat on the Intelligence Committee. It also appears that the day before his bizarre press conference, Nunes went to the White House where 2 staff members provided him with intelligence reports.These actions not only go against investigative protocol, but they also reek of political loyalty to the Trump administration, for which Nunes served as a transition official. This investigation can no longer remain dependent upon partisan congressional committees. An independent 9/11-style special commission into Russia's interference must be established. \n\nTo do this, 198 House Democrats and one House Republican have co-sponsored H.R.356, the Protecting Our Democracy Act. The bill would institute an independent commission of 12 nongovernmental appointees to fully investigate Russian interference in the 2016 elections. A similar bill in the Senate, S.27, has 24 co-sponsors.",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP]. \n\nI'm calling to express my support for [House: H.R.356; Senate: S.27], which would establish an independent special commission to investigate Russia's interference in the 2016 presidential election. The House Intelligence Committee's investigation has been compromised by Devin Nunes's loyalty to the White House. We must remove all partisan politics from the equation in order to get to the truth.\n\nThank you for your time and attention.\n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-MariaCantwell",
+               "name":"Maria Cantwell",
+               "phone":"202-224-3441",
+               "photoURL":"https://5calls.org/photo/WA-MariaCantwell",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-303-0114",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"509-946-8106",
+                     "city":"Richland"
+                  },
+                  {  
+                     "phone":"206-220-6400",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-353-2507",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-2281",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7838",
+                     "city":"Vancouver"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-PattyMurray",
+               "name":"Patty Murray",
+               "phone":"202-224-2621",
+               "photoURL":"https://5calls.org/photo/WA-PattyMurray",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-259-6515",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"206-553-5545",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-624-9515",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-3636",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7797",
+                     "city":"Vancouver"
+                  },
+                  {  
+                     "phone":"509-453-7462",
+                     "city":"Yakima"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-DennyHeck",
+               "name":"Denny Heck",
+               "phone":"202-225-9740",
+               "photoURL":"https://5calls.org/photo/WA-DennyHeck",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is your local representative in the House",
+               "area":"House",
+               "field_offices":[  
+                  {  
+                     "phone":"360-459-8514",
+                     "city":""
+                  },
+                  {  
+                     "phone":"253-208-6172",
+                     "city":""
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recxMEzEQBG06xVtc",
+         "name":"No Nuclear Option: The Existing Process Ensures a Consensus Candidate",
+         "reason":"The 60 votes needed to confirm a Supreme Court Justice are not just a number; the barrier they represent serves a crucial purpose. To identify a candidate who will garner sufficient support to be confirmed, the sitting President must spend significant time meeting with Senators and other colleagues on both sides of the aisle, negotiating and discussing key issues. The bar of the supermajority (60 votes) requirement ensures a true \"consensus candidate\", not one selected by highly-partisan, corporate-backed organizations such as The Federalist Society and the Heritage Foundation. \n\nThat some Senators want to permanently change the rules of the Senate to require only 51 votes (the so-called \"nuclear option\") is a clear sign that Gorsuch is not a suitable candidate. Those Senators do not wish to work to develop consensus with their colleagues across the aisle, preferring to outsource the selection of Supreme Court Justices to corporate interests.",
+         "script":"Hi, my name is [NAME] and I'm a constituent from [CITY, ZIP]. \n\nI'm calling in opposition to changing the rules of the Senate by enacting the \"nuclear option\" regarding the confirmation of Supreme Court Justices. The supermajority requirement ensures a true consensus candidate, and Gorsuch is not one. \n\nThank you for your hard work answering the phones. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-MariaCantwell",
+               "name":"Maria Cantwell",
+               "phone":"202-224-3441",
+               "photoURL":"https://5calls.org/photo/WA-MariaCantwell",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-303-0114",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"509-946-8106",
+                     "city":"Richland"
+                  },
+                  {  
+                     "phone":"206-220-6400",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-353-2507",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-2281",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7838",
+                     "city":"Vancouver"
+                  }
+               ]
+            },
+            {  
+               "id":"WA-PattyMurray",
+               "name":"Patty Murray",
+               "phone":"202-224-2621",
+               "photoURL":"https://5calls.org/photo/WA-PattyMurray",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is one of your two Senators",
+               "area":"Senate",
+               "field_offices":[  
+                  {  
+                     "phone":"425-259-6515",
+                     "city":"Everett"
+                  },
+                  {  
+                     "phone":"206-553-5545",
+                     "city":"Seattle"
+                  },
+                  {  
+                     "phone":"509-624-9515",
+                     "city":"Spokane"
+                  },
+                  {  
+                     "phone":"253-572-3636",
+                     "city":"Tacoma"
+                  },
+                  {  
+                     "phone":"360-696-7797",
+                     "city":"Vancouver"
+                  },
+                  {  
+                     "phone":"509-453-7462",
+                     "city":"Yakima"
+                  }
+               ]
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recgNTdt1Jbz61bVI",
+         "name":"Protect Manufacturing Job Programs from Budget Cuts",
+         "reason":"When President Trump’s budget plan came out last week, many Americans were dismayed to see drastic cuts to the programs that support our communities and grow our economy. One of these programs, the Hollings Manufacturing Extension Partnership (MEP), may have its funding cut by $124 million.\n\nThe MEP is a public-private partnership funded by the states, private businesses, and federal funds. Businesses work with their local MEP office to learn techniques to become more competitive in the marketplace, from streamlining their supply chain to improving their sustainability footprint. In just the last 3 years, over 1,000 small and medium size manufacturers from across the country have benefited from MEPs. According to the National Institute of Standards and Technology, for every $1 of federal investment, the MEP national network generates $17.90 in new sales growth for manufacturers, and for every $1,501 of federal investment, MEP creates or retains one manufacturing job. This means that Trump's $124 million cut will cost the economy $2.2 billion in revenue and 82,000 jobs. For someone who promised economic growth and the return of manufacturing jobs, cutting the MEP program is the wrong way to accomplish that.",
+         "script":"Hi, my name is [NAME] and I'm from [CITY, ZIP].   \n\nI'm calling to express my opposition to cutting federal funding for the Hollings Manufacturing Extension Partnership. This funding stimulates our economy and helps small manufacturers create the jobs that President Trump promised to bring to America.\n\n[IF COMMITTEE, ADD: Please share my comments with the members of the committee.]\n\nThank you for your hard work answering the phones. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"WA-DennyHeck",
+               "name":"Denny Heck",
+               "phone":"202-225-9740",
+               "photoURL":"https://5calls.org/photo/WA-DennyHeck",
+               "party":"Democratic",
+               "state":"WA",
+               "reason":"This is your local representative in the House",
+               "area":"House",
+               "field_offices":[  
+                  {  
+                     "phone":"360-459-8514",
+                     "city":""
+                  },
+                  {  
+                     "phone":"253-208-6172",
+                     "city":""
+                  }
+               ]
+            },
+            {  
+               "id":"reckelJxOo2Ow7QHt",
+               "name":"House Appropriations Committee",
+               "phone":"202-225-2771",
+               "photoURL":"",
+               "party":"",
+               "state":"",
+               "reason":"This organization is driving legislation related to the issue.",
+               "area":"",
+               "field_offices":null
+            }
+         ],
+         "inactive":false
+      },
+      {  
+         "id":"recOfZFEcuzgi9JPM",
+         "name":"Defend Federal Funding for Sanctuary Cities",
+         "reason":"In keeping with an earlier executive order from President Trump, Attorney General Jeff Sessions has threatened to withhold Justice Department grant funding from jurisdictions that refuse to disclose people's immigration status to the federal government. This policy targets the nation's approximately 60 \"sanctuary cities,\" which include New York, Los Angeles, Chicago, Seattle, and Boston, that have refused to cooperate with federal ICE deportations of noncriminal undocumented immigrants. Sessions' rule is at odds with the Constitution's Tenth Amendment and decades of case law that argue that the federal government cannot broadly withhold federal funding from local jurisdictions to force compliance with federal mandates. Even Trump advisor Rudy Giuliani recognized the constitutional limits to federal interference in local compliance with immigration. In 1996, he stated, \"The Tenth Amendment provides that 'The powers not delegated to the United States by the Constitution, nor prohibited by it to the states, are reserved to the states respectively, or to the people.' One right not granted to the federal government is the right of state and local governments to provide for the health and safety of their local communities.\" \n\nSessions hopes to bypass the Constitution by withholding funding only for local and state law enforcement. The decision to cut funding to local law enforcement in the name of improving public safety defies logic and deprives local law enforcement of money used to fight and prevent crimes that actually threaten Americans. While Sessions cites safety concerns to justify defunding sanctuary cities, a study of 2,492 US counties by the Center for American Progress and the National Immigration Law Center found that sanctuary counties are significantly safer and more economically prosperous than non-sanctuary jurisdictions. Multiple studies (including those by the University of Massachusetts, Northwestern, and the University of California) have also shown that first generation immigrants, regardless of their legal status, are less likely than native-born Americans to commit crimes. Threats to sanctuary cities also undermine local government and law enforcement's mission to build trust and protect the communities they serve. Despite claiming to dislike big government, the Trump administration and Jeff Sessions are interfering with state and local policy, violating the Constitution and undermining local governments' ability to protect their people.",
+         "script":"Hi, my name is [NAME] and I'm a citizen from [CITY, ZIP].   \n\nI'm calling to express my opposition to withholding law enforcement funding from sanctuary cities that do not release the names of undocumented people to the federal government. Defunding local law enforcement is an irresponsible and unconsitutional decision that will endanger public safety. \n\n[IF LEAVING A VOICEMAIL: please leave your full street address to ensure your call is tallied] ",
+         "contacts":[  
+            {  
+               "id":"recU0tsGD2MWQn0VT",
+               "name":"U.S. Department of Justice",
+               "phone":"202-353-1555",
+               "photoURL":"",
+               "party":"",
+               "state":"",
+               "reason":"This organization is driving legislation related to the issue.",
+               "area":"Other",
+               "field_offices":null
+            }
+         ],
+         "inactive":false
+      }
+   ]
+}

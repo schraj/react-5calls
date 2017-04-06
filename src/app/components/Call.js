@@ -32,7 +32,7 @@ class Call extends React.Component {
       issue: issue
     }
 
-    console.log("setting initial state: %o", this.state)
+    //console.log("setting initial state: %o", this.state)
   }
 
   setCurrentState = (newProps) => {
@@ -51,7 +51,7 @@ class Call extends React.Component {
       issue: issue
     });
 
-    console.log("setting new state: %o", this.state)
+    //console.log("setting new state: %o", this.state)
   }
 
   componentWillReceiveProps(newProps) {
@@ -60,33 +60,6 @@ class Call extends React.Component {
 
     this.setCurrentState(newProps);
   }
-
-  // shouldComponentUpdate(newProps, newState) {
-  //   console.log("should update")
-  //   console.log("newProps: %o", newProps)
-  //   console.log("newState: %o", newState)
-  //   return true;
-  // }
-
-  // componentWillUpdate(newProps, newState) {
-  //   console.log("will update")
-  //   console.log("newProps: %o", newProps)
-  //   console.log("newState: %o", newState)
-  // }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log("did update")
-  //   console.log("prevProps: %o", prevProps)
-  //   console.log("prevState: %o", prevState)
-  // }
-
-  // componentWillMount() {
-  //   console.log("will mount")
-  // }
-
-  // componentDidMount() {
-  //   console.log("did mount")
-  // }
 
   getContactWidget = () => {
     if (this.state.currentContact != null) {
