@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import LocationChooser from './LocationChooser'
 
 class IssuesLocation extends React.Component {
  constructor(props) {
@@ -17,26 +18,6 @@ class IssuesLocation extends React.Component {
     e.preventDefault();
     console.log('hit handleSubmit')
     this.props.setLocation(this.state.address);
-  }
-
-  debugText = () => {
-    return this.props.isDebug ? <button onClick={this.props.resetLocation}>reset</button> : "";
-  }
-
-  pretext = () => {
-    if (this.props.locationProcessing.fetchingLocation) {
-      return <p className="loadingAnimation">Getting your location</p>;
-    } else if (this.props.locationProcessing.askingLocation) {
-      return "";
-    } else if (this.props.invalidAddress) {
-      return <p><button id="btnInvalidAddress" className="subtle-button" onClick={this.props.onEnterLocation}>That address is invalid, please try again</button></p>;
-    } else if (this.props.locationInfo.cachedAddress) {
-      return <p>for <button id="btnAddress" className="subtle-button" onClick={this.props.onEnterLocation}>{this.props.locationInfo.cachedAddress}</button></p>;
-    } else if (this.props.locationInfo.cachedCity) {
-      return <p>for <button id="btnCity" className="subtle-button" onClick={this.props.onEnterLocation}> {this.props.locationInfo.cachedCity}</button> {this.debugText()}</p>;
-    } else {
-      return <p><button id="btnChooseALocation" className="subtle-button" onClick={this.props.onEnterLocation}>Choose a location</button></p>;
-    }
   }
 
   addressForm(state) {
@@ -58,7 +39,14 @@ class IssuesLocation extends React.Component {
   render() {
     return (
       <div className="issues__location">
-        {this.pretext()}
+        {LocationChooser(
+          this.props.locationProcessing.askingLocation
+          , this.props.locationProcessing.fetchingLocation
+          , this.props.invalidAddress
+          , this.props.locationInfo.cachedAddress
+          , this.props.locationInfo.cachedCity
+          , this.props.onEnterLocation
+          )}
         {this.addressForm()}
         <input id="test" type="text"/>
       </div>

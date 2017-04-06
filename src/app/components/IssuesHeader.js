@@ -39,6 +39,7 @@ IssuesHeader.propTypes = {
   callState: PropTypes.any.isRequired,
   locationInfo: PropTypes.any.isRequired,
   locationProcessing: PropTypes.any.isRequired,
+  invalidAddress: PropTypes.bool.isRequired,
   isDebug: PropTypes.bool.isRequired,
   resetLocation: PropTypes.func.isRequired,
   setLocation: PropTypes.func.isRequired,
