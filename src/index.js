@@ -21,15 +21,9 @@ const history = createHistory()
 const store = configureStore(history)
 initializeStore(store);
 
-// get initial address
-let address = ''
-if (store.getState().locationInfo){
-  address = store.getState().locationInfo.cachedAddress;
-}
-
 const state = store.getState();
 // sometimes we trigger this again when reloading mainView, check for issues
-if (state.remoteData.activeIssues.length === 0 || state.locationInfo.geolocation === '') {
+if (state.remoteData.activeIssues.length === 0 || (!state.locationInfo.geolocation || state.locationInfo.geolocation === '')) {
   // Check for browser support of geolocation
   if ((state.locationInfo.allowBrowserGeo !== false && navigator.geolocation) &&
     state.locationInfo.locationFetchType === 'browserGeolocation' && state.locationInfo.geolocation === '') {
@@ -41,6 +35,12 @@ if (state.remoteData.activeIssues.length === 0 || state.locationInfo.geolocation
   else if (state.locationInfo.address !== '' || state.locationInfo.geolocation !== '') {
     store.dispatch(actions.setFetchingLocation(false))
   }
+}
+
+// get initial address
+let address = ''
+if (store.getState().locationInfo){
+  address = store.getState().locationInfo.cachedAddress;
 }
 
 // initiate the calls to the back end to get the data

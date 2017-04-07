@@ -28,13 +28,13 @@ const initializeStore = (store) => {
     }
   });
 
-  // get the stored geo location
+  // get the stored setting
   let cachedAllowBrowserGeo = true;
   localStore.getAll('org.5calls.allow_geolocation', (allowGeo) => {
     if (allowGeo.length > 0) {
       logger.debug("allowGeo get", allowGeo[0]);
       cachedAllowBrowserGeo = allowGeo[0]
-    }
+    } 
   });
 
   // get the time the geo was last fetched
@@ -93,6 +93,7 @@ const initializeStore = (store) => {
   cachedLocationFetchType = (cachedAddress !== '') ? 'address' : cachedLocationFetchType;
 
   const locationInfo = {
+    locationFetchType: 'browserGeolocation',
     geolocation: cachedGeo,
     geoCacheTime: cachedGeoTime,
     allowBrowserGeo: cachedAllowBrowserGeo,

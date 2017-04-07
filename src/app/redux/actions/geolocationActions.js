@@ -79,8 +79,25 @@ export const fetchLocationByBrowserGeolocation = () => {
 
             if (lat && long) {
                 let geo = Math.floor(lat * 10000) / 10000 + ',' + Math.floor(long * 10000) / 10000;
+                const time = new Date().valueOf()
+                localStorage.replace("org.5calls.allow_geolocation", 0, true, () => { });
+                localStorage.replace("org.5calls.geolocation", 0, geo, () => { });
+                // TODO: This needs to use the city from the resolved data from backend. 
+                localStorage.replace("org.5calls.geolocation_city", 0, geo, () => { });
+                localStorage.replace("org.5calls.geolocation_time", 0, time, () => { });
+                const locationInfo = {
+                    cachedCity: geo,
+                    geolocation: geo,
+                    geoCacheTime: time,
+                    fetchingLocation: false,
+                    askingLocation: false
+                }
                 dispatch(setAllowBrowserGeolocation(true));
-                dispatch(setBrowserGeolocation(geo));
+
+                dispatch(setLocationInfo(locationInfo));
+
+                // get new issue data for this new location  
+                dispatch(getIssueData(geo));
             } else {
                 logger.warn("Error: bad browser location results");
                 dispatch(setFetchLocationBy('ipAddress'));
@@ -101,16 +118,20 @@ export const fetchLocationByBrowserGeolocation = () => {
         dispatch(setFetchLocationBy('ipAddress'));
     }
 
-    return (dispatch, getState) => {
-        // let boundSuccess = dispatch.bind(this, dispatch);
-        // let boundError = dispatch.bind(this, slowResponseTimeout);
-        
-        // If necessary, this prompts a permission dialog in the browser.
-        navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
-
+    return (dispatch, getState) => {        
         // Sometimes, the user ignores the prompt or the browser does not
         // provide a response when they do not permit browser location.
         // After 5s, try IP-based location, but let browser-based continue.
-        let slowResponseTimeout = window.setTimeout(handleSlowResponse, 5000);
+        let slowResponseTimeout = window.setTimeout(() => {
+            handleSlowResponse(dispatch);
+        }, 120000);
+
+        // If necessary, this prompts a permission dialog in the browser.
+        navigator.geolocation.getCurrentPosition((position) => {
+            geoSuccess(position, dispatch)
+        }, 
+        (error) => {
+            geoError(error, slowResponseTimeout)
+        });
     }
 }

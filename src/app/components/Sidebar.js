@@ -3,10 +3,7 @@ import { Link } from 'react-router-dom';
 
 import IssuesHeader from './IssuesHeader'
 import IssueList from './IssueList'
-
-const debugText = (isDebug, resetIssues) => {
-  return isDebug ? <a href="#" onClick={resetIssues}>reset</a> : '';
-}
+import DebugButton from './DebugButton'
 
 const scrollToTop = () => {
   window.scroll(0,0);
@@ -18,7 +15,7 @@ const Sidebar = ({issues, callState, locationInfo, locationProcessing, invalidAd
       {IssuesHeader(issues, callState, locationInfo, locationProcessing, invalidAddress, isDebug, resetLocation, setLocation, onEnterLocation)}
       {IssueList(issues, callState, onSelectIssue)}
       <Link to="/more" className="issues__footer-link" onClick={scrollToTop()}>view more issues</Link>
-      {debugText(isDebug, resetIssues)}
+      {DebugButton(isDebug, resetIssues)}
     </div>
   </aside>
 )

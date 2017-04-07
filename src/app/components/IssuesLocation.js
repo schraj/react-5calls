@@ -30,7 +30,7 @@ class IssuesLocation extends React.Component {
           , this.props.locationInfo.cachedCity
           , this.props.isDebug
           , this.props.onEnterLocation
-          , this.props.setLocation
+          , this.props.resetLocation
           )}
 
           {this.props.locationProcessing.askingLocation && !this.props.locationProcessing.fetchingLocation && 

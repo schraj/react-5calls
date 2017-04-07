@@ -27,6 +27,8 @@ export const locationInfo = (state = {}, action) => {
     case types.SET_LOCATION_INFO:
       //let newState = {...state};
       return Object.assign({}, state, action.locationInfo)
+    case types.SET_ALLOW_BROWSER_GEOLOCATION:
+      return {...state, allowBrowserGeo: action.allow} 
     case types.SET_LOCATION:
       return {...state, cachedAddress: action.location} 
     case types.RESET_LOCATION:    

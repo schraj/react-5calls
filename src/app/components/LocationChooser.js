@@ -10,7 +10,7 @@ const getChooserWidget = (fetchingLocation, askingLocation, invalidAddress, cach
     } else if (invalidAddress) {
       return <p>{LocationButton("That address is invalid, please try again",onEnterLocation)}</p>
     } else if (cachedAddress) {
-      return <p>for {LocationButton(cachedAddress,onEnterLocation)}</p>
+      return <p>for {LocationButton(cachedAddress,onEnterLocation)} {DebugButton(isDebug, resetLocation)}</p>
     } else if (cachedCity) {
       return <p>for {LocationButton(cachedCity,onEnterLocation)} {DebugButton(isDebug, resetLocation)}</p>
     } else {

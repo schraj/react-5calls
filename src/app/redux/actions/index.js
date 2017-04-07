@@ -25,6 +25,11 @@ export const setLocationAction = (location) => ({
   location: location
 })
 
+// NOTE: this does not set off another request for the remote data
+export const setLocationFromRemoteData = (location) => {
+  setLocationAction(location);
+}
+
 export const setLocation = (location) => {
     return (dispatch, getState) => {     
       localStorage.remove('org.5calls.location', () =>{})

@@ -31,6 +31,7 @@ export const resetLocation = () => {
     return (dispatch, getState) => {     
 
       //reset local storage
+      localStorage.remove("org.5calls.allow_geolocation", () => {});
       localStorage.remove("org.5calls.location", () => {});
       localStorage.remove("org.5calls.geolocation", () => {});
       localStorage.remove("org.5calls.geolocation_city", () => {});
