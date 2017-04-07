@@ -1,5 +1,7 @@
 import * as types from '../constants/types'
 import * as api from '../../services/api'
+import localStorage from '../../services/localstorage'
+import { setLocationFromRemoteData, setFetchingLocation } from './index'
 
 export const fetchIssuesRequest = () => ({
   type: types.FETCH_ISSUES_REQUEST,
@@ -51,6 +53,17 @@ export const getIssueData = (address) => {
           invalidAddress: response.data.invalidAddress
         }
         dispatch(setRemoteData(remoteData));
+
+        // check to see if city name is set.  it won't be if we used browser geolocation
+        let locationInfo = getState().locationInfo;
+        let newLocation = response.data.normalizedLocation;     
+        if (locationInfo.locationFetchType === 'browserGeolocation' && newLocation){
+          dispatch(setLocationFromRemoteData(newLocation));            
+          localStorage.replace("org.5calls.geolocation_city", 0, newLocation, () => { });
+          // We were waiting for the city name, now we have it, so turn off the spinner
+          dispatch(setFetchingLocation(false));
+        }
+
       }, (reason) => {
         dispatch(fetchIssuesError(reason));
       });      

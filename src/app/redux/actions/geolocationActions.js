@@ -2,6 +2,7 @@ import * as types from '../constants/types'
 import * as api from '../../services/api'
 import localStorage from '../../services/localstorage'
 import { getIssueData } from './apiActions'
+import { setFetchingLocation } from './index'
 
 import { logger } from 'loglevel'
 
@@ -82,8 +83,6 @@ export const fetchLocationByBrowserGeolocation = () => {
                 const time = new Date().valueOf()
                 localStorage.replace("org.5calls.allow_geolocation", 0, true, () => { });
                 localStorage.replace("org.5calls.geolocation", 0, geo, () => { });
-                // TODO: This needs to use the city from the resolved data from backend. 
-                localStorage.replace("org.5calls.geolocation_city", 0, geo, () => { });
                 localStorage.replace("org.5calls.geolocation_time", 0, time, () => { });
                 const locationInfo = {
                     cachedCity: geo,
@@ -91,7 +90,11 @@ export const fetchLocationByBrowserGeolocation = () => {
                     geoCacheTime: time,
                     fetchingLocation: false,
                     askingLocation: false
-                }
+                }                
+
+                // This will keep the spinner up until we're ready
+                dispatch(setFetchingLocation(true));
+
                 dispatch(setAllowBrowserGeolocation(true));
 
                 dispatch(setLocationInfo(locationInfo));

@@ -27,7 +27,7 @@ export const setLocationAction = (location) => ({
 
 // NOTE: this does not set off another request for the remote data
 export const setLocationFromRemoteData = (location) => {
-  setLocationAction(location);
+  return setLocationAction(location);
 }
 
 export const setLocation = (location) => {
