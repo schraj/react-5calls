@@ -25,7 +25,8 @@ export const reportData = (state = {}, action) => {
 export const locationInfo = (state = {}, action) => {
   switch (action.type) {
     case types.SET_LOCATION_INFO:
-      return action.locationInfo
+      //let newState = {...state};
+      return Object.assign({}, state, action.locationInfo)
     case types.SET_LOCATION:
       return {...state, cachedAddress: action.location} 
     case types.RESET_LOCATION:    
@@ -54,8 +55,10 @@ export const userStats = (state = {}, action) => {
 
 export const locationProcessing = (state = {}, action) => {
   switch (action.type) {
-    case types.SET_ASKINGLOCATION:
+    case types.SET_ASKING_LOCATION:
       return {...state, askingLocation: action.askingLocation}
+    case types.SET_FETCHING_LOCATION:
+      return {...state, fetchingLocation: action.fetchingLocation}
     default:
       return state
   }

@@ -2,6 +2,11 @@ import axios from 'axios'
 
 const issueUrl = 'https://5calls.org/issues/?address='
 const reportUrl = 'https://5calls.org/report'
+const ipInfoUrl = 'https://ipinfo.io/json'
+
+export const getIpinfoData = () => {
+    return axios.get(ipInfoUrl);
+}
 
 export const getIssueData = (address) => {
     return axios.get(issueUrl + address);

@@ -4,18 +4,20 @@ import localStorage from '../../services/localstorage'
 import { postReportData } from '../../services/api'
 import { resetIssues, resetLocation, setIsDebug } from './debugActions'
 import { getIssueData, getReportData, setRemoteData, setReportData, fetchTodos } from './apiActions'
+import { setLocationInfo, setAllowBrowserGeolocation, setFetchLocationBy, fetchLocationByBrowserGeolocation, fetchLocationByIp } from './geolocationActions'
 
 export { resetIssues, resetLocation, setIsDebug };
 export { getIssueData, getReportData, setRemoteData, setReportData, fetchTodos };
-
-export const setLocationInfo = (locationInfo) => ({
-  type: types.SET_LOCATION_INFO,
-  locationInfo: locationInfo
-})
+export { setLocationInfo, setAllowBrowserGeolocation, setFetchLocationBy, fetchLocationByBrowserGeolocation, fetchLocationByIp };
 
 export const setAskingLocation = (askingLocation) => ({
-  type: types.SET_ASKINGLOCATION,
+  type: types.SET_ASKING_LOCATION,
   askingLocation: askingLocation
+})
+
+export const setFetchingLocation = (fetchingLocation) => ({
+    type: types.SET_FETCHING_LOCATION,
+    fetchingLocation: fetchingLocation
 })
 
 export const setLocationAction = (location) => ({

@@ -11,7 +11,7 @@ import DonePage from './app/pages/DonePage';
 import AboutPage from './app/pages/AboutPage';
 import ImpactPage from './app/pages/ImpactPage';
 import MorePage from './app/pages/MorePage';
-import {getIssueData, getReportData} from './app/redux/actions/index'
+import * as actions from './app/redux/actions/index'
 
 import createHistory from 'history/createBrowserHistory'
 
@@ -27,9 +27,25 @@ if (store.getState().locationInfo){
   address = store.getState().locationInfo.cachedAddress;
 }
 
+const state = store.getState();
+// sometimes we trigger this again when reloading mainView, check for issues
+if (state.remoteData.activeIssues.length === 0 || state.locationInfo.geolocation === '') {
+  // Check for browser support of geolocation
+  if ((state.locationInfo.allowBrowserGeo !== false && navigator.geolocation) &&
+    state.locationInfo.locationFetchType === 'browserGeolocation' && state.locationInfo.geolocation === '') {
+      store.dispatch(actions.fetchLocationByBrowserGeolocation())
+  }
+  else if (state.locationInfo.locationFetchType === 'ipAddress' && state.geolocation === '') {
+      store.dispatch(actions.fetchLocationByIp())
+  }
+  else if (state.locationInfo.address !== '' || state.locationInfo.geolocation !== '') {
+    store.dispatch(actions.setFetchingLocation(false))
+  }
+}
+
 // initiate the calls to the back end to get the data
-store.dispatch(getIssueData(address));
-store.dispatch(getReportData());
+store.dispatch(actions.getIssueData(address));
+store.dispatch(actions.getReportData());
 
 render(
   <Provider store={store}>
