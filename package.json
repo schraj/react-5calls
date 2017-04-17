@@ -64,6 +64,8 @@
     "immutable": "^3.8.1",
     "invariant": "^2.1.0",
     "loglevel": "^1.4.1",
+    "preact": "^8.1.0",
+    "preact-compat": "^3.14.3",
     "raf": "^3.3.0",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
